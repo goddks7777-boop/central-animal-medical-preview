@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{--teal:#02686a;--ink:#212121;--muted:#666}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Pretendard,'Noto Sans KR',sans-serif;color:var(--ink);line-height:1.55}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button{font:inherit;cursor:pointer}.wrap{width:min(1440px,calc(100% - 64px));margin:auto}header{height:100px;background:var(--teal);display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;color:white}header img{width:301px}nav{display:flex;align-items:center;gap:60px;font-weight:600;font-size:18px}.menu{display:none}.hero{height:789px;background:linear-gradient(90deg,rgba(0,0,0,.52),transparent 70%),url('이미지/vis1.jpg') center/cover no-repeat;color:white;display:flex;align-items:center}.hero h1{font-size:50px;line-height:1.25;margin:0 0 55px}.hero p{font-size:26px}.quick{position:fixed;right:7%;top:34%;z-index:5;display:grid;gap:7px}.quick a{width:70px;height:70px;border-radius:50%;background:var(--teal);color:white;display:grid;place-content:center;text-align:center;font-size:24px;line-height:1}.quick small{font-size:10px;margin-top:5px}.quick .up{background:white;color:var(--teal);box-shadow:0 2px 10px #0002}.center{text-align:center}.story{min-height:630px;padding:140px 24px 80px;background:linear-gradient(#ffffffb5,#fff),url('이미지/section1.jpg') center/cover}.eyebrow{font-size:30px;color:#2b8688;font-weight:800}.story h2{font-size:50px;line-height:1.25;color:var(--teal);margin:28px 0 75px}.story p{font-size:20px;color:#777}.stats{background:linear-gradient(135deg,#006d6e,#00a4a0);color:white;padding:135px 0}.stats .wrap{display:flex;justify-content:center;gap:200px;text-align:center}.stats b{font-size:80px;line-height:1}.stats b span{font-size:45px}.stats p{font-weight:700}.director{display:grid;grid-template-columns:40% 60%;background:#f8f8f8;min-height:760px}.portrait{background:#95bdbd url('이미지/symbol.png') 10% 15%/55% no-repeat;display:flex;align-items:end;justify-content:center}.portrait img{max-height:700px;object-fit:contain}.director-info{padding:110px 10% 60px 7%}blockquote{font-size:36px;color:#888;margin:0;padding:0 0 70px;border-bottom:1px solid #8eb5b5}blockquote small{display:flex;align-items:center;justify-content:flex-end;font-size:14px;margin-top:25px}blockquote img{width:140px}.credentials{display:grid;grid-template-columns:1fr 2fr 1.6fr;gap:30px;padding-top:50px;font-size:15px}.credentials h3,.credentials strong{color:var(--teal)}.credentials h3{font-size:27px}.section{padding-top:190px;padding-bottom:190px}.heading{text-align:center;margin-bottom:90px}.heading h2{font-size:40px;line-height:1.3;margin:0 0 35px}.heading p{font-size:26px;color:#666;line-height:1.5;margin:0}.tabs{display:flex;justify-content:center;border-bottom:1px solid #ddd;margin-bottom:80px;gap:0;overflow:auto}.tabs button,.tabs span{background:none;border:0;border-bottom:2px solid transparent;padding:22px 32px;white-space:nowrap;font-size:17px;font-weight:700;color:#444}.tabs button.active,.tabs span:first-child{color:var(--teal);border-color:var(--teal)}.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.team-grid article,.steps article,.equipment-grid article{border-radius:18px;background:white;box-shadow:0 4px 9px #0002;padding:32px}.team-grid article{min-height:440px}.team-grid h3{font-size:19px}.team-grid small{font-size:14px}.team-grid strong,.team-grid h3:before{color:var(--teal)}.team-grid p{font-size:14px;line-height:1.9}.teal{background:var(--teal);color:white}.treatment{padding:190px 0 150px;overflow:hidden}.light p{color:#c7e3e2}.photo-strip{display:flex;gap:18px;width:110%;margin-left:-5%}.photo-strip img{width:20%;height:480px;object-fit:cover;border-radius:20px}.feature{display:grid;grid-template-columns:41% 1fr;gap:20px}.feature>img{width:100%;height:353px;object-fit:cover;border-radius:20px}.feature>div{padding:45px 9%;background:#f8f8f8;border-radius:20px}.feature h3,.feature strong{color:var(--teal)}.feature h3{font-size:25px;margin:0 0 25px}.feature strong{display:block;margin-top:20px}.feature p{font-size:16px;color:#666}.process{padding:180px 0}.process-layout{display:grid;grid-template-columns:30% 1fr;gap:35px;align-items:start}.process h2{font-size:38px;line-height:1.3}.process small{font-weight:700}.white-btn{display:inline-block;background:white;color:var(--teal);padding:12px 25px;border-radius:6px;margin-top:20px;font-weight:700}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;color:#333}.steps.four{grid-template-columns:repeat(4,1fr)}.steps article{min-height:215px}.steps em{display:inline-block;background:var(--teal);color:white;font-size:12px;font-style:normal;font-weight:bold;padding:3px 7px;border-radius:4px}.steps h3{color:var(--teal);font-size:18px;margin:30px 0 10px}.steps p{color:#666;font-size:14px}.gray{background:#f8f8f8}.care-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.care-grid article{background:#f8f8f8;border-radius:20px;overflow:hidden}.care-grid img{width:100%;height:250px;object-fit:cover}.care-grid h3,.care-grid p{margin:18px 30px;color:var(--teal);font-size:18px}.care-grid p{color:#666;font-size:14px}.dental-signs{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}.dental-signs img{height:490px;width:100%;object-fit:cover;border-radius:20px}.dental-signs>div{display:grid;gap:15px}.dental-signs article{background:white;box-shadow:0 3px 8px #0002;border-radius:15px;padding:25px;color:var(--teal);font-weight:700}.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.check-grid .four{grid-template-columns:1fr 1fr}.check-grid img{width:100%;height:100%;object-fit:cover}.equipment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.equipment-grid article{background:#f9f9f9;min-height:350px}.equipment-grid h3{font-size:17px;margin:0}.equipment-grid p{color:var(--teal);font-size:14px;font-weight:700}.equipment-grid img{width:100%;height:210px;object-fit:contain;mix-blend-mode:multiply}.facility{display:flex;align-items:center;justify-content:center;gap:20px}.facility img{width:min(710px,75vw);height:470px;object-fit:cover;border-radius:20px}.facility button{border:0;border-radius:50%;background:#fff;color:var(--teal);width:50px;height:50px;font-size:32px}.btn{display:inline-block;padding:14px 30px;background:var(--teal);color:white;border-radius:7px}.hours{background:url('이미지/section17.jpg') center/cover;padding:90px 0}.hours-grid{margin-left:auto;width:50%;display:grid;grid-template-columns:1fr 1fr;gap:20px}.hours-grid article{background:white;text-align:center;padding:32px;border-radius:18px;box-shadow:0 2px 6px #0002;color:var(--teal)}.hours-grid article:last-child{background:var(--teal);color:white}.hours-grid h3{font-size:24px}.hours-grid b{font-size:15px}.hours-grid p{font-size:13px}footer{background:var(--teal);color:white;padding:90px 0 40px}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:55px}.footer-grid h3{font-size:18px}.footer-grid p,.footer-bottom p{font-size:14px;opacity:.8}.phone{font-size:36px;font-weight:800}.map{min-height:300px;background:#dce9e6;display:grid;place-content:center;color:var(--teal);font-weight:700}.footer-bottom{display:flex;gap:60px;align-items:center;margin-top:80px}.footer-bottom img{width:220px}@media(max-width:900px){header{height:75px}header img{width:220px}.menu{display:block;background:none;color:white;border:0;font-size:28px}nav{display:none;position:absolute;top:75px;left:0;right:0;background:var(--teal);padding:25px;z-index:10;gap:20px;flex-direction:column}nav.open{display:flex}.hero{height:570px}.hero h1{font-size:36px}.hero p{font-size:18px}.quick{right:12px;top:auto;bottom:20px}.quick a{width:50px;height:50px;font-size:18px}.quick small{font-size:8px}.section{padding:100px 0}.heading{margin-bottom:50px}.heading h2{font-size:30px}.heading p{font-size:18px}.stats .wrap{gap:40px}.stats b{font-size:45px}.stats b span{font-size:26px}.director{grid-template-columns:1fr}.portrait img{max-height:480px}.director-info{padding:60px 8%}.team-grid{grid-template-columns:1fr 1fr}.photo-strip img{height:280px}.process-layout{grid-template-columns:1fr}.steps.four,.equipment-grid{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:1fr}.check-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.map{grid-column:span 2}.hours-grid{width:65%}}@media(max-width:600px){.wrap{width:calc(100% - 36px)}.hero{height:500px;background-position:60% center}.hero h1{font-size:29px}.hero p{font-size:16px}.story{padding-top:90px;min-height:500px}.story h2{font-size:30px}.eyebrow{font-size:20px}.story p{font-size:15px}.stats{padding:70px 0}.stats .wrap{gap:20px}.stats b{font-size:32px}.stats p{font-size:11px}.credentials{grid-template-columns:1fr 1fr}.credentials>div:first-child{grid-column:span 2}blockquote{font-size:25px}.heading h2{font-size:25px}.heading p{font-size:15px}.heading br{display:none}.team-grid{grid-template-columns:1fr}.team-grid article{min-height:0}.tabs{justify-content:flex-start;margin-bottom:35px}.tabs button,.tabs span{padding:16px;font-size:14px}.photo-strip{width:180%;margin-left:-20%}.photo-strip img{height:220px}.steps,.steps.four{grid-template-columns:1fr}.care-grid,.dental-signs{grid-template-columns:1fr}.care-grid img{height:190px}.dental-signs img{height:280px}.check-grid .four,.equipment-grid{grid-template-columns:1fr 1fr}.check-grid .steps article{padding:20px;min-height:180px}.equipment-grid article{padding:16px;min-height:240px}.equipment-grid img{height:140px}.facility img{height:280px}.hours{background-position:25% center}.hours-grid{width:100%;padding-top:190px}.footer-grid{grid-template-columns:1fr}.map{grid-column:auto}.footer-bottom{display:block}.phone{font-size:28px}}
+
+/* 메인 비주얼 */
+.hero{position:relative;overflow:hidden;display:block;background:none;touch-action:pan-y;cursor:grab;user-select:none}
+.hero.is-dragging{cursor:grabbing}
+.hero-slide{position:absolute;inset:0;display:flex;align-items:center;background-position:center;background-size:cover;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s;pointer-events:none}
+.hero-slide.is-active{opacity:1;visibility:visible;pointer-events:auto}
+.hero-slide-1{background-image:linear-gradient(90deg,rgba(0,0,0,.52),transparent 70%),url('이미지/vis1.jpg')}
+.hero-slide-2{background-image:linear-gradient(90deg,rgba(0,0,0,.52),transparent 70%),url('이미지/vis2.jpg')}
+.hero-slide-3{background-image:linear-gradient(90deg,rgba(0,0,0,.52),transparent 70%),url('이미지/vis3.jpg')}
+.hero-slide h2{font-size:50px;line-height:1.25;margin:0 0 55px;color:white}
+.hero-controls{position:absolute;z-index:2;bottom:45px;left:50%;transform:translateX(-50%);display:flex;gap:16px;align-items:center}
+.hero-controls button{color:white;background:none;border:0;cursor:pointer}
+.hero-prev,.hero-next{font-size:32px;line-height:1;padding:5px 9px}
+.hero-dots{display:flex;align-items:center;gap:10px}.hero-dots button{width:10px;height:10px;padding:0;border:1px solid white;border-radius:50%;opacity:.8}.hero-dots button.is-active{background:white;opacity:1}
+.hero-controls button:focus-visible{outline:2px solid white;outline-offset:5px}
+@media(max-width:900px){.hero-slide h2{font-size:36px}.hero-slide{background-position:60% center}}
+@media(max-width:600px){.hero-slide h2{font-size:29px}.hero-controls{bottom:25px}.hero-slide p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:none}}
+
+/* 브랜드 스토리 스크롤 마스크 */
+.story{position:relative;min-height:0;padding:0;background:#f8f8f8}
+.story-window{position:relative;background:#f8f8f8}
+.story-content{position:relative;isolation:isolate;min-height:1240px;padding:186px 24px 140px;overflow:hidden}
+.story-content::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0),#fff),url('이미지/section1.jpg') center top/cover no-repeat;opacity:.2}
+.story .eyebrow{display:block;font-family:'Red Rose',Georgia,serif;font-size:30px;line-height:30px;color:#2b8688}
+.story h2{font-size:50px;line-height:60px;color:#02686a;margin:40px 0 160px}
+.story-copy{max-width:1100px;margin:auto}.story .story-copy p{font-size:28px;line-height:38px;color:#444;margin:0 0 40px}.story .story-copy strong{font-weight:700}.story .story-copy .story-signature{color:#02686a;font-weight:500;margin:60px 0 0}
+.story.is-scroll-enabled{height:var(--story-track-height)}
+.story.is-scroll-enabled .story-window{position:sticky;top:0;height:min(630px,100vh);overflow:hidden}
+.story.is-scroll-enabled .story-content{transform:translate3d(0,var(--story-offset,0px),0);will-change:transform}
+@media(max-width:900px){.story-content{min-height:0;padding:120px 28px 100px}.story h2{font-size:38px;line-height:1.25;margin:35px 0 100px}.story .story-copy p{font-size:21px;line-height:1.55}.story-copy br{display:none}}
+@media(max-width:600px){.story-content{padding:90px 24px}.story .eyebrow{font-size:22px;line-height:1.2}.story h2{font-size:30px;line-height:1.3;margin:30px 0 90px}.story .story-copy p{font-size:17px;line-height:1.65;margin-bottom:32px}.story .story-copy .story-signature{margin-top:45px}.story.is-scroll-enabled .story-window{height:min(630px,85vh)}}
+
+/* 첫 화면에서 헤더 아래 비주얼이 화면 끝까지 채워지도록 설정 */
+.hero{height:calc(100vh - 100px);height:calc(100dvh - 100px)}
+@media(max-width:900px){.hero{height:calc(100vh - 75px);height:calc(100dvh - 75px)}}
+
+/* 스크롤 방향에 따라 네비게이션 표시 */
+header{position:sticky;top:0;z-index:20;transition:transform .28s ease;will-change:transform}
+header.is-hidden{transform:translateY(-100%)}
+@media(prefers-reduced-motion:reduce){header{transition:none}}
+
+/* 통계 영역 */
+.stats{height:570px;padding:105px 24px 0;background:linear-gradient(180deg,#02686a 0%,#00a6a9 100%);color:#fff;overflow:hidden}
+.stats-inner{max-width:1077px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.stat-item{position:relative;height:300px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.stat-icon{position:absolute;top:0;left:50%;transform:translateX(-50%);max-width:none;pointer-events:none}
+.stat-icon-cost{width:225px;top:11px}.stat-icon-career{width:181px;top:42px}.stat-icon-review{width:265px}
+.stats .stat-value{position:relative;z-index:1;display:block;font-size:70px;line-height:1;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;margin-top:127px}
+.stats .stat-value span{font-size:inherit}.stats .stat-value .stat-unit{font-size:.7em;font-weight:400}
+.stats .stat-item p{position:relative;z-index:1;margin:40px 0 0;font-size:20px;line-height:30px;font-weight:700}
+.stats.motion-ready .stat-item{opacity:0;transform:translateY(45px);transition:opacity .7s ease,transform .7s ease}
+.stats.motion-ready.is-visible .stat-item{opacity:1;transform:translateY(0)}
+.stats.motion-ready .stat-item:nth-child(2){transition-delay:.12s}.stats.motion-ready .stat-item:nth-child(3){transition-delay:.24s}
+.stat-reels{display:inline-flex;align-items:baseline}.stat-digit{display:inline-block;overflow:hidden;height:1em;line-height:1;vertical-align:bottom}.stat-digit-strip{display:flex;flex-direction:column;transform:translateY(0);transition:transform 1.8s cubic-bezier(.16,.75,.22,1);transition-delay:var(--digit-delay,0s)}
+.stats .stat-digit-strip>span{display:block;height:1em;line-height:1}.stats.is-visible .stat-digit-strip{transform:translateY(calc(-1em * var(--digit-steps)))}
+@media(max-width:900px){.stats{height:440px;padding-top:85px}.stats-inner{gap:10px}.stat-item{height:270px}.stat-icon-cost{width:180px}.stat-icon-career{width:145px}.stat-icon-review{width:210px}.stats .stat-value{font-size:55px;margin-top:104px}.stats .stat-item p{font-size:16px;line-height:1.5;margin-top:32px}}
+@media(max-width:600px){.stats{height:340px;padding:60px 12px 0}.stats-inner{gap:4px}.stat-item{height:240px}.stat-icon-cost{width:min(105px,90%);top:8px}.stat-icon-career{width:min(85px,75%);top:24px}.stat-icon-review{width:min(120px,100%)}.stats .stat-value{font-size:clamp(28px,8vw,38px);margin-top:62px}.stats .stat-item p{font-size:clamp(10px,2.8vw,13px);line-height:1.5;margin-top:25px;word-break:keep-all}}
+@media(prefers-reduced-motion:reduce){.stats.motion-ready .stat-item{opacity:1;transform:none;transition:none}.stat-digit-strip{transition:none}}
+
+/* 대표원장 소개 */
+.director{display:grid;grid-template-columns:39.53% 1fr;min-height:864px;background:#f8f8f8}
+.director .portrait{min-height:864px;position:relative;overflow:hidden;background:#97bebe url('이미지/symbol.png') 11% 18%/57% no-repeat;display:flex;justify-content:flex-end;align-items:flex-end}
+.director .portrait img{display:block;width:min(71%,539px);max-height:765px;object-fit:contain;object-position:bottom;flex:none}
+.director-info{padding:0;display:grid;grid-template-rows:398px 1fr;min-width:0}
+.director blockquote{position:relative;margin:0;padding:126px 11% 50px;color:#444;border:0;font-family:'Noto Serif KR', 'Batang',serif;font-size:clamp(27px,2.08vw,40px);line-height:1.35;letter-spacing:-.04em}
+.director blockquote::before{content:'“';position:absolute;left:1%;top:20px;font-family:Georgia,serif;font-size:220px;line-height:1;color:#e9efee;z-index:0}
+.director blockquote p{position:relative;margin:0;z-index:1}
+.director blockquote footer{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:12px;background:none;color:#444;margin:20px 0 0;padding:0;font-family:Pretendard,'Noto Sans KR',sans-serif;font-size:14px;font-weight:600;letter-spacing:0}
+.director blockquote footer img{width:147px}
+.credentials{position:relative;display:grid;grid-template-columns:18.8% 1fr 1fr;gap:0;padding:0;font-size:14px;color:#444}
+.credentials::before{content:'';position:absolute;top:0;right:0;width:100%;height:1px;background:#02686a;transform-origin:right center}
+.credentials>div{min-width:0;padding:65px 12% 40px}
+.credentials .director-name{position:relative;padding-left:30%;padding-right:12%}
+.director-name::after{content:'';position:absolute;right:0;top:0;bottom:0;width:1px;background:#02686a;transform-origin:center bottom}
+.director-name h3{font-size:30px;line-height:1.05;margin:34px 0 18px;color:#02686a}
+.director-name h3::before{content:'';display:block;width:22px;height:4px;background:#02686a;margin-bottom:30px}
+.credentials strong{font-size:20px;line-height:1;color:#02686a}
+.credentials p{font-size:14px;line-height:24px;margin:24px 0 0;word-break:keep-all}
+.director.lines-ready .credentials::before{transform:scaleX(0);transition:transform 1.1s ease}
+.director.lines-ready .director-name::after{transform:scaleY(0);transition:transform 1.1s ease}
+.director.lines-ready.lines-visible .credentials::before{transform:scaleX(1)}
+.director.lines-ready.lines-visible .director-name::after{transform:scaleY(1)}
+@media(max-width:1200px) and (min-width:901px){.credentials{grid-template-columns:22% 1fr 1fr}.credentials>div{padding-left:8%;padding-right:8%}.credentials .director-name{padding-left:18%}.director blockquote{padding-left:10%;padding-right:8%;font-size:29px}}
+@media(max-width:900px){.director{grid-template-columns:1fr;min-height:0}.director .portrait{min-height:490px}.director .portrait img{width:auto;height:470px;max-width:75%}.director-info{grid-template-rows:auto 1fr}.director blockquote{padding:90px 9% 55px;font-size:30px}.director blockquote::before{font-size:170px;top:10px}.credentials{grid-template-columns:25% 1fr 1fr}.credentials>div{padding:50px 9%}.credentials .director-name{padding-left:25%}}
+@media(max-width:600px){.director .portrait{min-height:400px}.director .portrait img{height:390px}.director blockquote{font-size:24px;padding:85px 8% 45px}.director blockquote::before{font-size:150px}.director blockquote footer img{width:110px}.credentials{grid-template-columns:32% 1fr}.credentials>div{padding:35px 8%}.credentials .director-name{grid-row:1 / span 2;padding:35px 15%}.director-name h3{font-size:24px}.credentials strong{font-size:17px}.credentials p{font-size:13px;line-height:1.7;margin-top:20px}.credentials .director-affiliations{padding-top:0}}
+@media(prefers-reduced-motion:reduce){.director.lines-ready .credentials::before,.director.lines-ready .director-name::after{transform:none;transition:none}}
+/* 작은 화면에서도 소개와 약력을 나란히 유지 */
+.director.lines-ready .credentials::before,.director.lines-ready .director-name::after{transition:none}
+.director.lines-ready.lines-visible .credentials::before,.director.lines-ready.lines-visible .director-name::after{transition:transform 1.1s ease}
+.director blockquote p{word-break:keep-all}
+@media(max-width:600px){.credentials .director-name{grid-column:1;grid-row:1 / span 2}.credentials .director-career{grid-column:2;grid-row:1}.credentials .director-affiliations{grid-column:2;grid-row:2}}
+@media(prefers-reduced-motion:reduce){.director.lines-ready.lines-visible .credentials::before,.director.lines-ready.lines-visible .director-name::after{transition:none}}
+@media(max-width:600px){.director .credentials .director-name{grid-column:1;grid-row:1 / span 2}}
+
+/* 빠른 메뉴 */
+.quick{position:fixed;z-index:15;right:2.5%;top:50%;bottom:auto;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px}
+.quick a{box-sizing:border-box;width:80px;height:80px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:50%;background:#02686a;color:#fff;text-align:center;box-shadow:0 10px 10px rgba(0,0,0,.1);transition:transform .2s ease,background-color .2s ease}
+.quick a:hover{transform:translateY(-3px);background:#00595b}
+.quick a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.quick img{width:auto;height:auto;object-fit:contain;flex:none}
+.quick small{font-size:10px;line-height:10px;font-weight:700;margin:0;white-space:nowrap}
+.quick .up{background:#f8f8f8;color:#02686a}.quick .up:hover{background:#fff}.quick .up img{margin:7px 0 5px}
+@media(max-width:900px){.quick{right:12px;top:auto;bottom:18px;transform:none;gap:6px}.quick a{width:54px;height:54px;gap:2px}.quick img{max-width:28px;max-height:28px}.quick small{font-size:8px;line-height:9px}.quick .up img{max-width:24px;margin:3px 0 3px}}
+@media(prefers-reduced-motion:reduce){.quick a{transition:none}}
+
+/* 스토리 양쪽에 인접 영역을 남기고 중앙에서 고정 */
+.story-sequence{--story-mask:min(630px,100vh);--story-peek:max(0px,calc((100vh - var(--story-mask))/2));--sequence-hero-height:calc(100vh - 100px);--sequence-stats-height:570px;position:relative}
+.story-sequence .hero{position:sticky;top:calc(var(--story-peek) - var(--sequence-hero-height))}
+.story.is-scroll-enabled{background:transparent;z-index:1}
+.story.is-scroll-enabled .story-window{top:var(--story-peek);height:var(--story-mask)}
+.story-sequence .stats{position:sticky;bottom:calc(var(--story-peek) - var(--sequence-stats-height))}
+@media(max-width:900px){.story-sequence{--sequence-hero-height:calc(100vh - 75px);--sequence-stats-height:440px}}
+@media(max-width:600px){.story-sequence{--story-mask:min(630px,85vh);--sequence-stats-height:340px}}
+@media(prefers-reduced-motion:reduce){.story-sequence .hero,.story-sequence .stats{position:relative;top:auto;bottom:auto}}
+
+/* 의료진 소개 탭과 카드 */
+#team{min-height:1446px;padding-top:200px;padding-bottom:160px}
+#team .heading{margin-bottom:120px}
+#team .team-tabs{margin-bottom:80px;justify-content:center}
+#team .team-tabs button{min-width:190px;font-size:20px;line-height:20px;padding:20px 24px 40px;color:#444}
+#team .team-tabs button.active{color:#02686a;border-bottom-color:#02686a}
+#team .team-tabs button:focus-visible{outline:2px solid #02686a;outline-offset:-5px}
+#team .team-grid[hidden]{display:none}
+#team .team-grid{grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:20px}
+#team .team-card{padding:33px 31px;min-height:606px;border-radius:18px;background:#fff;box-shadow:0 6px 12px rgba(0,0,0,.12)}
+#team .team-card h3{font-size:20px;line-height:1.35;color:#444;margin:0 0 10px;word-break:keep-all}
+#team .team-card h3::before{content:'';display:block;width:14px;height:4px;background:#02686a;margin-bottom:25px}
+#team .team-card h3 small{font-size:16px;color:inherit;white-space:nowrap}
+#team .team-card .team-role{display:block;color:#02686a;font-size:16px;line-height:1.4}
+#team .team-detail{margin-top:36px;color:#444}
+#team .team-detail h4{font-size:15px;line-height:1.4;margin:0 0 12px}
+#team .team-detail p{font-size:14px;line-height:1.65;margin:0 0 24px;word-break:keep-all}
+@media(max-width:900px){#team{min-height:0;padding-top:110px;padding-bottom:110px}#team .heading{margin-bottom:60px}#team .team-tabs{justify-content:flex-start;margin-bottom:45px}#team .team-tabs button{min-width:160px;font-size:17px;padding:18px 20px 24px}#team .team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#team .team-card{min-height:0}}
+@media(max-width:600px){#team{padding-top:90px;padding-bottom:90px}#team .team-tabs button{min-width:135px;font-size:14px}#team .team-grid{grid-template-columns:1fr}#team .team-card{padding:28px}}
+
+/* 진료 소개 입체 캐러셀 */
+.treatment{height:1195px;padding:200px 0 50px;background:linear-gradient(180deg,#02686a 0%,#00a6a9 69.71%,#02686a 100%);overflow:hidden}
+.treatment .heading{margin-bottom:32px}.treatment .heading p{color:#fff}
+.care-carousel{position:relative;overflow:hidden;touch-action:pan-y;user-select:none;cursor:grab}
+.care-carousel.is-dragging{cursor:grabbing}
+.care-stage{height:732px;position:relative;perspective:2400px;perspective-origin:center center;transform-style:preserve-3d;--care-step:min(20.98vw,403px);--care-width:min(20.12vw,386px);--care-height:min(25.78vw,495px)}
+.care-slide{position:absolute;left:50%;top:50%;width:var(--care-width);height:var(--care-height);padding:0;border:0;border-radius:20px;overflow:hidden;background:#004d4f;color:white;text-align:left;transform-style:preserve-3d;transform:translate(-50%,-50%) translateX(calc(var(--slot,0) * var(--care-step))) translateZ(var(--depth,0px)) rotateY(var(--turn,0deg)) scaleY(var(--height-scale,1));transition:transform .65s cubic-bezier(.22,.7,.2,1),opacity .5s ease;opacity:var(--visibility,0);z-index:var(--layer,1);cursor:pointer;box-shadow:0 10px 10px #0002}
+.care-slide img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.care-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 44%,rgba(0,0,0,.85) 100%);pointer-events:none;opacity:.35;transition:opacity .35s}
+.care-slide.is-center::after{opacity:1}
+.care-slide-copy{position:absolute;z-index:1;left:9%;right:9%;bottom:8%;display:flex;flex-direction:column;gap:16px;opacity:0;visibility:hidden;transition:opacity .25s ease;pointer-events:none;transform:scaleY(calc(1 / var(--height-scale,1)))}
+.care-slide.is-center .care-slide-copy{opacity:1;visibility:visible;transition-delay:.3s}
+.care-slide-copy strong{font-size:clamp(19px,1.45vw,28px);line-height:1.2}
+.care-slide-description{font-size:clamp(12px,.84vw,16px);line-height:1.45;word-break:keep-all}
+.care-tags{display:flex;gap:5px;flex-wrap:wrap}.care-tags span{border:1px solid #ffffff80;border-radius:20px;padding:3px 9px;background:#ffffff30;font-size:clamp(10px,.65vw,13px);line-height:1.2;white-space:nowrap}
+.care-slide:focus-visible{outline:3px solid white;outline-offset:5px}
+.care-controls{display:flex;justify-content:center;align-items:center;gap:24px;color:#fff;margin-top:0}
+.care-controls button{border:1px solid #ffffff80;background:#ffffff20;color:#fff;border-radius:50%;width:42px;height:42px;font-size:30px;line-height:1}
+.care-controls button:hover{background:#ffffff40}.care-controls button:focus-visible{outline:2px solid white;outline-offset:4px}.care-count{font-size:14px;letter-spacing:.1em;font-variant-numeric:tabular-nums}
+@media(max-width:900px){.treatment{height:auto;min-height:820px;padding:110px 0 70px}.care-stage{height:480px;--care-width:290px;--care-height:370px;--care-step:300px}.care-slide-copy strong{font-size:22px}.care-slide-description{font-size:14px}}
+@media(max-width:600px){.treatment{min-height:0;padding:90px 0 55px}.treatment .heading{padding:0 24px;margin-bottom:45px}.care-stage{height:440px;--care-width:min(68vw,290px);--care-height:min(88vw,375px);--care-step:min(75vw,320px)}.care-slide-copy{gap:10px}.care-slide-copy strong{font-size:20px}.care-slide-description{font-size:13px}.care-tags span{font-size:10px}.care-controls{margin-top:12px}}
+@media(prefers-reduced-motion:reduce){.care-slide,.care-slide-copy,.care-slide::after{transition:none}}
+/* section1 이미지는 이미 밝기와 그라데이션이 적용된 원본 */
+.story-content::before{background:url('이미지/section1.jpg') center top/cover no-repeat;opacity:1}
+
+/* 화면 밖에서 숫자를 즉시 처음 위치로 돌려놓습니다. */
+.stats.is-resetting .stat-digit-strip{transition:none}
+
+/* 내과 진료 분야 */
+#internal{min-height:1193px;padding-top:200px;padding-bottom:200px}
+#internal .heading{margin-bottom:120px}
+#internal .internal-tabs{justify-content:space-between;margin-bottom:80px}
+#internal .internal-tabs button{flex:1;padding:20px 10px 35px;font-size:20px;font-weight:600;white-space:nowrap}
+#internal .internal-tabs button.active{border-color:#02686a;color:#02686a}
+#internal .internal-tabs button:focus-visible{outline:2px solid #02686a;outline-offset:-5px}
+#internal .internal-feature{display:grid;grid-template-columns:40.83% 1fr;gap:20px}
+#internal .internal-visual{padding:0;background:#f0eeee;border-radius:20px;overflow:hidden;min-height:353px}
+#internal .internal-visual img{width:100%;height:100%;min-height:353px;object-fit:cover}
+#internal .internal-visual img[hidden],#internal .internal-image-placeholder[hidden]{display:none}
+#internal .internal-image-placeholder{display:grid;place-items:center;min-height:353px;color:#777;font-size:16px}
+#internal .internal-info{position:relative;background:#f8f8f8;border-radius:20px;padding:50px 9%;min-height:353px}
+#internal .internal-info h3{font-size:26px;line-height:1.2;font-weight:700;color:#02686a;margin:0 0 34px}
+#internal .internal-info strong{display:block;font-size:20px;font-weight:600;color:#02686a;margin:0 0 8px}
+#internal .internal-info p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
+#internal .internal-diseases{margin-top:32px;padding-right:180px}
+#internal .internal-related{position:absolute;right:9%;bottom:55px;border:0;border-radius:7px;background:#02686a;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;box-shadow:0 5px 10px #0002}
+#internal .internal-related:disabled{cursor:not-allowed;opacity:.7}
+#internal .internal-related span{margin-left:10px}
+@media(max-width:900px){#internal{min-height:0;padding-top:110px;padding-bottom:110px}#internal .heading{margin-bottom:65px}#internal .internal-tabs{justify-content:flex-start;margin-bottom:45px}#internal .internal-tabs button{flex:none;font-size:16px;padding:18px 24px 25px}#internal .internal-feature{grid-template-columns:1fr}#internal .internal-visual,#internal .internal-visual img,#internal .internal-image-placeholder{height:320px;min-height:320px}#internal .internal-info{min-height:310px;padding:40px}}
+@media(max-width:600px){#internal{padding-top:90px;padding-bottom:90px}#internal .internal-visual,#internal .internal-visual img,#internal .internal-image-placeholder{height:230px;min-height:230px}#internal .internal-info{min-height:0;padding:30px 26px}#internal .internal-info h3{font-size:24px;margin-bottom:25px}#internal .internal-info strong{font-size:18px}#internal .internal-diseases{padding-right:0;margin-top:25px}#internal .internal-related{position:static;margin-top:25px}}
+
+/* 내과 진단 과정 가로 슬라이드 */
+.diagnostic-process{position:relative;min-height:697px;padding:0;background:#02686a;overflow:hidden;display:flex;align-items:center}
+.diagnostic-process::before{content:'';position:absolute;left:2.71%;top:33px;width:min(500px,32vw);aspect-ratio:1;background:#00a7aa;opacity:.2;-webkit-mask:url('이미지/symbol.png') center/contain no-repeat;mask:url('이미지/symbol.png') center/contain no-repeat;pointer-events:none}
+.diagnostic-layout{position:relative;z-index:1;width:100%;padding-left:max(32px,calc((100% - 1440px)/2));display:grid;grid-template-columns:clamp(320px,25.36vw,487px) minmax(0,1fr);align-items:start}
+.diagnostic-intro{padding-right:30px}.diagnostic-intro small{font-size:14px;font-weight:500;white-space:nowrap}.diagnostic-intro h2{font-size:40px;line-height:1.25;margin:20px 0 100px}.diagnostic-intro .white-btn{margin:0;min-width:175px;text-align:center;font-size:14px}
+.diagnostic-slider{min-width:0}.diagnostic-track{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;touch-action:pan-x pan-y;padding:0 40px 10px 0}
+.diagnostic-track::-webkit-scrollbar{display:none}.diagnostic-track.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}.diagnostic-track:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+.diagnostic-track article{flex:0 0 467px;min-height:263px;padding:74px 54px 45px;background:white;color:#444;border-radius:20px;scroll-snap-align:start;box-shadow:0 8px 10px #0002}
+.diagnostic-track em{display:inline-block;font-style:normal;background:#02686a;color:#fff;font-size:14px;font-weight:600;line-height:1;padding:5px 7px;border-radius:5px}
+.diagnostic-track h3{margin:35px 0 12px;font-size:20px;line-height:1;color:#02686a}.diagnostic-track p{margin:0;font-size:16px;line-height:22px;word-break:keep-all;color:#444}
+.diagnostic-controls{display:flex;align-items:center;gap:14px;margin-top:20px}.diagnostic-controls button{border:1px solid #ffffff8c;background:transparent;color:white;border-radius:50%;height:30px;width:30px;font-size:22px;line-height:1}.diagnostic-controls button:disabled{opacity:.35;cursor:default}.diagnostic-controls button:focus-visible{outline:2px solid white;outline-offset:3px}
+.diagnostic-progress{width:234px;height:4px;background:#fff;border-radius:5px;overflow:hidden}.diagnostic-progress span{display:block;height:100%;width:var(--thumb-width,33.333%);background:#00a7aa;transform:translateX(var(--thumb-offset,0px));border-radius:5px}
+@media(max-width:900px){.diagnostic-process{min-height:0;padding:100px 0}.diagnostic-process::before{width:350px;max-width:80vw;top:20px}.diagnostic-layout{padding-left:32px;grid-template-columns:1fr;gap:50px}.diagnostic-intro h2{font-size:32px;margin:18px 0 35px}.diagnostic-track article{flex-basis:400px;min-height:230px;padding:55px 35px 35px}}
+@media(max-width:600px){.diagnostic-process{padding:80px 0}.diagnostic-layout{padding-left:18px;gap:40px}.diagnostic-intro small{font-size:11px}.diagnostic-intro h2{font-size:28px}.diagnostic-track{gap:14px;padding-right:18px}.diagnostic-track article{flex-basis:min(80vw,320px);min-height:210px;padding:45px 28px 30px}.diagnostic-track h3{margin-top:28px;font-size:19px}.diagnostic-track p{font-size:14px;line-height:1.5}.diagnostic-progress{width:150px}}
+
+/* 외과 진료 분야 */
+#surgery{min-height:1193px;padding-top:200px;padding-bottom:200px}
+#surgery .heading{margin-bottom:120px}
+#surgery .surgery-tabs{justify-content:space-between;margin-bottom:80px}
+#surgery .surgery-tabs button{flex:1;padding:20px 10px 35px;font-size:20px;font-weight:600;white-space:nowrap}
+#surgery .surgery-tabs button.active{border-color:#02686a;color:#02686a}
+#surgery .surgery-tabs button:focus-visible{outline:2px solid #02686a;outline-offset:-5px}
+#surgery .surgery-feature{display:grid;grid-template-columns:40.83% 1fr;gap:20px}
+#surgery .surgery-visual{padding:0;background:#f0eeee;border-radius:20px;overflow:hidden;min-height:353px}
+#surgery .surgery-visual img{width:100%;height:100%;min-height:353px;object-fit:cover}
+#surgery .surgery-visual img[hidden],#surgery .surgery-image-placeholder[hidden]{display:none}
+#surgery .surgery-image-placeholder{display:grid;place-items:center;min-height:353px;color:#777;font-size:16px}
+#surgery .surgery-info{position:relative;background:#f8f8f8;border-radius:20px;padding:50px 9%;min-height:353px}
+#surgery .surgery-info h3{font-size:26px;line-height:1.2;font-weight:700;color:#02686a;margin:0 0 34px}
+#surgery .surgery-info strong{display:block;font-size:20px;font-weight:600;color:#02686a;margin:0 0 8px}
+#surgery .surgery-info p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
+#surgery .surgery-diseases{margin-top:32px;padding-right:180px}
+#surgery .surgery-related{position:absolute;right:9%;bottom:55px;border:0;border-radius:7px;background:#02686a;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;box-shadow:0 5px 10px #0002}
+#surgery .surgery-related:disabled{cursor:not-allowed;opacity:.7}
+#surgery .surgery-related span{margin-left:10px}
+@media(max-width:900px){#surgery{min-height:0;padding-top:110px;padding-bottom:110px}#surgery .heading{margin-bottom:65px}#surgery .surgery-tabs{justify-content:flex-start;margin-bottom:45px}#surgery .surgery-tabs button{flex:none;font-size:16px;padding:18px 24px 25px}#surgery .surgery-feature{grid-template-columns:1fr}#surgery .surgery-visual,#surgery .surgery-visual img,#surgery .surgery-image-placeholder{height:320px;min-height:320px}#surgery .surgery-info{min-height:310px;padding:40px}}
+@media(max-width:600px){#surgery{padding-top:90px;padding-bottom:90px}#surgery .surgery-visual,#surgery .surgery-visual img,#surgery .surgery-image-placeholder{height:230px;min-height:230px}#surgery .surgery-info{min-height:0;padding:30px 26px}#surgery .surgery-info h3{font-size:24px;margin-bottom:25px}#surgery .surgery-info strong{font-size:18px}#surgery .surgery-diseases{padding-right:0;margin-top:25px}#surgery .surgery-related{position:static;margin-top:25px}}
+
+/* 내과 진단 과정 가로 슬라이드 */
+.diagnostic-process{position:relative;min-height:697px;padding:0;background:#02686a;overflow:hidden;display:flex;align-items:center}
+.diagnostic-process::before{content:'';position:absolute;left:2.71%;top:33px;width:min(500px,32vw);aspect-ratio:1;background:#00a7aa;opacity:.2;-webkit-mask:url('이미지/symbol.png') center/contain no-repeat;mask:url('이미지/symbol.png') center/contain no-repeat;pointer-events:none}
+.diagnostic-layout{position:relative;z-index:1;width:100%;padding-left:max(32px,calc((100% - 1440px)/2));display:grid;grid-template-columns:clamp(320px,25.36vw,487px) minmax(0,1fr);align-items:start}
+.diagnostic-intro{padding-right:30px}.diagnostic-intro small{font-size:14px;font-weight:500;white-space:nowrap}.diagnostic-intro h2{font-size:40px;line-height:1.25;margin:20px 0 100px}.diagnostic-intro .white-btn{margin:0;min-width:175px;text-align:center;font-size:14px}
+.diagnostic-slider{min-width:0}.diagnostic-track{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;touch-action:pan-x pan-y;padding:0 40px 10px 0}
+.diagnostic-track::-webkit-scrollbar{display:none}.diagnostic-track.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}.diagnostic-track:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+.diagnostic-track article{flex:0 0 467px;min-height:263px;padding:74px 54px 45px;background:white;color:#444;border-radius:20px;scroll-snap-align:start;box-shadow:0 8px 10px #0002}
+.diagnostic-track em{display:inline-block;font-style:normal;background:#02686a;color:#fff;font-size:14px;font-weight:600;line-height:1;padding:5px 7px;border-radius:5px}
+.diagnostic-track h3{margin:35px 0 12px;font-size:20px;line-height:1;color:#02686a}.diagnostic-track p{margin:0;font-size:16px;line-height:22px;word-break:keep-all;color:#444}
+.diagnostic-controls{display:flex;align-items:center;gap:14px;margin-top:20px}.diagnostic-controls button{border:1px solid #ffffff8c;background:transparent;color:white;border-radius:50%;height:30px;width:30px;font-size:22px;line-height:1}.diagnostic-controls button:disabled{opacity:.35;cursor:default}.diagnostic-controls button:focus-visible{outline:2px solid white;outline-offset:3px}
+.diagnostic-progress{width:234px;height:4px;background:#fff;border-radius:5px;overflow:hidden}.diagnostic-progress span{display:block;height:100%;width:var(--thumb-width,33.333%);background:#00a7aa;transform:translateX(var(--thumb-offset,0px));border-radius:5px}
+@media(max-width:900px){.diagnostic-process{min-height:0;padding:100px 0}.diagnostic-process::before{width:350px;max-width:80vw;top:20px}.diagnostic-layout{padding-left:32px;grid-template-columns:1fr;gap:50px}.diagnostic-intro h2{font-size:32px;margin:18px 0 35px}.diagnostic-track article{flex-basis:400px;min-height:230px;padding:55px 35px 35px}}
+@media(max-width:600px){.diagnostic-process{padding:80px 0}.diagnostic-layout{padding-left:18px;gap:40px}.diagnostic-intro small{font-size:11px}.diagnostic-intro h2{font-size:28px}.diagnostic-track{gap:14px;padding-right:18px}.diagnostic-track article{flex-basis:min(80vw,320px);min-height:210px;padding:45px 28px 30px}.diagnostic-track h3{margin-top:28px;font-size:19px}.diagnostic-track p{font-size:14px;line-height:1.5}.diagnostic-progress{width:150px}}
+
+#surgery .surgery-tabs{justify-content:center}
+#surgery .surgery-tabs button{flex:0 0 14%;min-width:135px}
+@media(max-width:900px){#surgery .surgery-tabs{justify-content:flex-start}#surgery .surgery-tabs button{flex:none}}
+
+/* 원형 벽을 따라 이동하는 이미지와 별도 텍스트 */
+.care-slide{transform:translate(-50%,-50%) translateX(calc(var(--slot-x,0) * var(--care-step))) translateZ(var(--depth,0px)) rotateY(var(--turn,0deg)) scaleY(var(--height-scale,1));transition:none}
+.care-slide-copy{display:none!important}
+.care-detail-frame{position:absolute;z-index:30;top:50%;left:50%;width:var(--care-width);height:var(--care-height);transform:translate(-50%,-50%);pointer-events:none}
+.care-detail{position:absolute;left:9.8%;right:9.8%;bottom:9%;color:#fff;text-align:left;opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;word-break:keep-all}
+.care-detail.is-visible{opacity:1;transform:translateY(0)}
+.care-detail h3{font-family:Pretendard,'Noto Sans KR',sans-serif;color:#fff;font-size:26px;font-weight:700;line-height:1.2;letter-spacing:-.02em;margin:0 0 20px}
+.care-detail p{font-family:Pretendard,'Noto Sans KR',sans-serif;color:#fff;font-size:16px;font-weight:400;line-height:22px;letter-spacing:0;margin:0 0 16px}
+.care-detail-tags{display:flex;gap:5px;flex-wrap:wrap}.care-detail-tags span{font-size:12px;line-height:1.2;font-weight:400;color:#fff;padding:3px 9px;border-radius:20px;border:1px solid #ffffff80;background:#ffffff30;white-space:nowrap}
+@media(max-width:900px){.care-detail h3{font-size:23px;margin-bottom:14px}.care-detail p{font-size:14px;line-height:20px;margin-bottom:12px}}
+@media(max-width:600px){.care-detail h3{font-size:20px;margin-bottom:12px}.care-detail p{font-size:13px;line-height:19px;margin-bottom:10px}.care-detail-tags span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.care-detail{transition:none}}
+
+/* 진단 과정 카드가 중간 위치에서도 자유롭게 멈춥니다. */
+.diagnostic-track{scroll-snap-type:none;-webkit-overflow-scrolling:touch}
+.diagnostic-track article{scroll-snap-align:none}
+
+/* 수술 전 확인: 첫 단계 민트색 강조 */
+#surgery-prep{min-height:915px;padding-top:200px;padding-bottom:200px}
+#surgery-prep .heading{margin-bottom:140px}
+#surgery-prep .steps{gap:20px}
+#surgery-prep .steps article{min-height:215px;padding:39px;border-radius:20px;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+#surgery-prep .steps article{transition:box-shadow .4s ease}
+#surgery-prep .steps article.is-active{box-shadow:0 0 0 2px #6efcff,0 0 10px #6efcff,0 4px 4px rgba(0,0,0,.25)}
+@media(prefers-reduced-motion:reduce){#surgery-prep .steps article{transition:none}}
+#surgery-prep .steps h3{font-size:20px;line-height:1.2;margin:30px 0 10px}
+#surgery-prep .steps p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
+@media(max-width:900px){#surgery-prep{min-height:0;padding-top:110px;padding-bottom:110px}#surgery-prep .heading{margin-bottom:70px}}
+@media(max-width:600px){#surgery-prep{padding-top:90px;padding-bottom:90px}#surgery-prep .steps article{min-height:0;padding:30px}#surgery-prep .steps h3{font-size:19px}#surgery-prep .steps p{font-size:15px}}
+
+/* 치료 환경: 이미지 위에 밝은 설명 영역을 겹친 카드 */
+#care-environment{min-height:1410px;padding-top:200px;padding-bottom:200px}
+#care-environment .heading{margin-bottom:140px}
+#care-environment .care-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+#care-environment .care-grid article{height:345px;position:relative;overflow:hidden;border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.1);background:#f8f8f8}
+#care-environment .care-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom}
+#care-environment .care-card-copy{position:absolute;inset:58.84% 0 0;padding:32px 52px 20px;background:linear-gradient(180deg,#f8f8f8 58.1%,rgba(248,248,248,.4) 138.03%)}
+#care-environment .care-card-copy h3{font-size:20px;font-weight:700;line-height:1.2;color:#02686a;margin:0 0 10px;word-break:keep-all}
+#care-environment .care-card-copy p{font-size:16px;font-weight:400;line-height:22px;color:#444;margin:0;word-break:keep-all}
+@media(max-width:1100px){#care-environment .care-card-copy{inset:auto 0 0;padding:26px 28px 22px}#care-environment .care-card-copy h3{font-size:18px}#care-environment .care-card-copy p{font-size:14px;line-height:21px}#care-environment .care-card-copy br{display:none}}
+@media(max-width:900px){#care-environment{min-height:0;padding-top:110px;padding-bottom:110px}#care-environment .heading{margin-bottom:70px}#care-environment .care-grid article{height:320px}}
+@media(max-width:700px){#care-environment{padding-top:90px;padding-bottom:90px}#care-environment .heading{margin-bottom:50px}#care-environment .care-grid{grid-template-columns:1fr}#care-environment .care-grid article{height:340px}#care-environment .care-card-copy{padding:24px 24px 22px}}
+
+/* 치과 증상 안내 */
+#dental { min-height: 1188px; padding: 196px 0 200px; background: #f8f8f8; }
+#dental .heading { margin-bottom: 140px; }
+#dental .heading h2 { font-size: 40px; line-height: 1.3; }
+#dental .heading p { margin-top: 35px; font-size: 30px; line-height: 1.35; }
+#dental .dental-signs { display: grid; grid-template-columns: minmax(0, 832fr) minmax(0, 588fr); gap: 20px; }
+#dental .dental-signs > img { display: block; width: 100%; height: 492px; object-fit: cover; border-radius: 20px; }
+#dental .dental-list { display: grid; grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 20px; }
+#dental .dental-list article { display: flex; align-items: center; gap: 43px; min-width: 0; padding: 20px 36px; border-radius: 20px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.1); }
+#dental .dental-list article > div { min-width: 0; }
+#dental .dental-list h3 { margin: 0; color: #006c6e; font-size: 20px; line-height: 1.3; font-weight: 700; }
+#dental .dental-list p { margin: 8px 0 0; color: #444; font-size: 16px; line-height: 1.4; font-weight: 400; }
+#dental .dental-check { position: relative; flex: 0 0 30px; width: 30px; height: 30px; border: 3px solid #006c6e; border-radius: 4px; }
+#dental .dental-check::after { content: ''; position: absolute; left: 8px; top: -7px; width: 12px; height: 24px; border: solid #006c6e; border-width: 0 3px 3px 0; background: transparent; transform: rotate(40deg); }
+@media (max-width: 900px) {
+  #dental { min-height: 0; padding: 110px 0; }
+  #dental .heading { margin-bottom: 65px; }
+  #dental .heading h2 { font-size: clamp(25px, 4vw, 36px); }
+  #dental .heading p { margin-top: 24px; font-size: 20px; line-height: 1.5; }
+  #dental .dental-signs { grid-template-columns: 1fr; }
+  #dental .dental-signs > img { height: auto; aspect-ratio: 832 / 492; }
+  #dental .dental-list { grid-template-rows: none; gap: 14px; }
+  #dental .dental-list article { min-height: 105px; padding: 22px 24px; gap: 24px; }
+}
+@media (max-width: 600px) {
+  #dental { padding: 90px 0; }
+  #dental .heading { margin-bottom: 48px; }
+  #dental .heading p { font-size: 16px; }
+  #dental .dental-list article { min-height: 96px; padding: 20px; gap: 20px; }
+  #dental .dental-list h3 { font-size: 17px; }
+  #dental .dental-list p { font-size: 14px; }
+  #dental .dental-check { flex-basis: 28px; width: 28px; height: 28px; }
+}
+
+/* 진료 카드의 깊이 정렬과 텍스트 렌더링을 분리합니다. */
+.care-stage { transform-style: flat; }
+.care-slide { display: block; transform-style: flat; backface-visibility: hidden; isolation: isolate; }
+.care-detail-frame { transform: none; }
+.care-detail { opacity: 0; visibility: hidden; transform: none; transition: none; text-shadow: none; }
+.care-detail.is-visible { opacity: 1; visibility: visible; transform: none; animation: care-copy-enter .4s ease-out; }
+.care-detail h3, .care-detail p, .care-detail-tags span { text-shadow: none; }
+.care-detail { left: 38px; right: 38px; bottom: 44px; }
+.care-detail p { font-weight: 400; line-height: 1.55; }
+@media (max-width: 900px) { .care-detail { left: 28px; right: 28px; bottom: 34px; } }
+@keyframes care-copy-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .care-detail.is-visible { animation: none; } }
+
+/* 자주 확인하는 구강 질환 */
+#oral-diseases{min-height:1193px;padding-top:200px;padding-bottom:200px}
+#oral-diseases .heading{margin-bottom:120px}
+#oral-diseases .heading p{font-size:30px;line-height:40px;color:#444}
+#oral-diseases .oral-tabs{justify-content:space-between;margin-bottom:80px}
+#oral-diseases .oral-tabs button{flex:1;padding:20px 12px 35px;font-size:20px;font-weight:600;white-space:nowrap}
+#oral-diseases .oral-tabs button.active{border-color:#02686a;color:#02686a}
+#oral-diseases .oral-tabs button:focus-visible{outline:2px solid #02686a;outline-offset:-5px}
+#oral-diseases .oral-feature{display:grid;grid-template-columns:40.83% minmax(0,1fr);gap:20px}
+#oral-diseases .oral-feature>img{width:100%;height:353px;object-fit:cover;border-radius:20px}
+#oral-diseases .oral-info{position:relative;min-height:353px;padding:50px 9%;background:#f8f8f8;border-radius:20px}
+#oral-diseases .oral-info h3{font-size:26px;line-height:1.2;font-weight:700;color:#02686a;margin:0 0 34px}
+#oral-diseases .oral-info strong{display:block;font-size:20px;font-weight:600;color:#02686a;margin:0 0 8px;line-height:1.2}
+#oral-diseases .oral-info p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
+#oral-diseases .oral-intro{max-width:400px}
+#oral-diseases .oral-symptoms{margin-top:32px;padding-right:180px}
+#oral-diseases .oral-related{position:absolute;right:9%;bottom:55px;border:0;border-radius:7px;background:#02686a;color:#fff;font-size:14px;font-weight:700;padding:13px 24px;box-shadow:0 5px 10px #0002}
+#oral-diseases .oral-related:disabled{cursor:not-allowed}
+#oral-diseases .oral-related span{margin-left:10px}
+@media(max-width:1100px){#oral-diseases .oral-tabs{justify-content:flex-start}#oral-diseases .oral-tabs button{flex:none}}
+@media(max-width:900px){#oral-diseases{min-height:0;padding-top:110px;padding-bottom:110px}#oral-diseases .heading{margin-bottom:65px}#oral-diseases .heading p{font-size:20px;line-height:1.5}#oral-diseases .oral-tabs{margin-bottom:45px}#oral-diseases .oral-tabs button{font-size:16px;padding:18px 24px 25px}#oral-diseases .oral-feature{grid-template-columns:1fr}#oral-diseases .oral-feature>img{height:320px}#oral-diseases .oral-info{min-height:310px;padding:40px}}
+@media(max-width:600px){#oral-diseases{padding-top:90px;padding-bottom:90px}#oral-diseases .heading p{font-size:16px}#oral-diseases .oral-feature>img{height:230px}#oral-diseases .oral-info{min-height:0;padding:30px 26px}#oral-diseases .oral-info h3{font-size:24px;margin-bottom:25px}#oral-diseases .oral-info strong{font-size:18px}#oral-diseases .oral-symptoms{padding-right:0;margin-top:25px}#oral-diseases .oral-related{position:static;margin-top:25px}}
+
+@media(max-width:900px){#oral-diseases .oral-symptoms{padding-right:0}#oral-diseases .oral-related{position:static;margin-top:25px}}
+
+/* 건강검진 단계 안내 */
+#checkup{min-height:1150px;padding-top:200px;padding-bottom:200px;background:#f8f8f8}
+#checkup .heading{margin-bottom:140px}
+#checkup .heading p{font-size:30px;line-height:40px;color:#444}
+#checkup .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+#checkup .steps.four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+#checkup .steps article{min-height:215px;padding:39px;border-radius:20px;background:#fff;box-shadow:0 4px 10px rgba(0,0,0,.1);transition:box-shadow .4s ease}
+#checkup .steps article.is-active{box-shadow:0 0 0 2px #6efcff,0 0 10px #6efcff,0 4px 4px rgba(0,0,0,.25)}
+#checkup .steps em{font-size:14px;line-height:14px;padding:5px 7px;border-radius:5px}
+#checkup .steps h3{font-size:20px;line-height:1.2;margin:30px 0 10px}
+#checkup .steps p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
+#checkup .check-grid>img{width:100%;height:450px;object-fit:cover}
+@media(max-width:900px){#checkup{min-height:0;padding-top:110px;padding-bottom:110px}#checkup .heading{margin-bottom:70px}#checkup .heading p{font-size:20px;line-height:1.5}#checkup .check-grid{grid-template-columns:1fr}#checkup .check-grid>img{height:auto;aspect-ratio:710/450} }
+@media(max-width:600px){#checkup{padding-top:90px;padding-bottom:90px}#checkup .heading{margin-bottom:50px}#checkup .heading p{font-size:16px}#checkup .steps.four{grid-template-columns:1fr}#checkup .steps article{min-height:0;padding:30px}#checkup .steps h3{font-size:19px}#checkup .steps p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){#checkup .steps article{transition:none}}
+
+/* 아이에게 맞는 예방접종 계획 */
+.vaccination-process{position:relative;min-height:813px;padding:200px 0;background:#02686a;overflow:hidden}
+.vaccination-process::before{content:'';position:absolute;left:2.71%;top:33px;width:min(500px,32vw);aspect-ratio:500/503;background:url('이미지/vaccination-symbol.svg') center/contain no-repeat;pointer-events:none}
+.vaccination-layout{position:relative;display:grid;grid-template-columns:345px minmax(0,1fr);gap:20px}
+.vaccination-intro{position:relative;min-height:413px;color:#fff}
+.vaccination-intro small{display:block;font-size:14px;font-weight:400;line-height:1;white-space:nowrap}
+.vaccination-intro h2{font-size:40px;line-height:1.25;margin:20px 0 0;font-weight:700}
+.vaccination-intro .white-btn{position:absolute;top:287px;left:0;display:flex;align-items:center;justify-content:center;gap:10px;width:175px;height:43px;margin:0;padding:0;border-radius:8px;font-size:14px;font-weight:600;box-shadow:0 10px 10px rgba(0,0,0,.1)}
+.vaccination-intro .white-btn span{font-size:21px;line-height:1;font-weight:400}
+.vaccination-intro p{position:absolute;top:370px;left:0;margin:0;font-size:14px;font-weight:400;line-height:20px;color:#fff;word-break:keep-all}
+.vaccination-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.vaccination-steps article{position:relative;min-height:413px;padding:0 31px;border-radius:20px;background:#fff;box-shadow:0 10px 10px rgba(0,0,0,.1)}
+.vaccination-steps article>img{position:absolute;top:41px;right:31px;width:117px;height:117px;object-fit:contain}
+.vaccination-steps article>div{position:absolute;top:224px;left:31px;right:31px}
+.vaccination-steps em{font-size:14px;line-height:14px;padding:5px 7px;border-radius:5px;font-weight:600}
+.vaccination-steps h3{font-size:20px;line-height:1.2;color:#02686a;margin:38px 0 10px;font-weight:700}
+.vaccination-steps p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
+@media(max-width:1200px){.vaccination-layout{grid-template-columns:280px minmax(0,1fr)}.vaccination-steps article{padding:0 24px}.vaccination-steps article>div{left:24px;right:24px}.vaccination-intro p br{display:none}}
+@media(max-width:1100px){.vaccination-process{min-height:0;padding:100px 0}.vaccination-process::before{width:350px;max-width:80vw;top:20px}.vaccination-layout{grid-template-columns:1fr;gap:45px}.vaccination-intro{min-height:0}.vaccination-intro h2{font-size:32px;margin:18px 0 35px}.vaccination-intro .white-btn,.vaccination-intro p{position:static}.vaccination-intro p{margin-top:35px}.vaccination-steps article{min-height:330px}.vaccination-steps article>div{top:180px}.vaccination-steps article>img{top:30px;width:90px;height:90px}.vaccination-steps h3{margin-top:28px}}
+@media(max-width:600px){.vaccination-process{padding:80px 0}.vaccination-intro small{font-size:11px}.vaccination-intro h2{font-size:28px}.vaccination-steps{grid-template-columns:1fr;gap:16px}.vaccination-steps article{min-height:240px}.vaccination-steps article>img{top:25px;right:24px;width:80px;height:80px}.vaccination-steps article>div{top:110px}.vaccination-steps h3{margin-top:22px;font-size:19px}.vaccination-steps p{font-size:15px}}
+
+/* 의료 장비 */
+#equipment{padding-top:195px;padding-bottom:195px}
+#equipment .heading{margin-bottom:120px}
+#equipment .heading p{font-size:30px;line-height:40px;color:#444}
+#equipment .equipment-tabs{justify-content:center;gap:110px;margin-bottom:80px}
+#equipment .equipment-tabs button{padding:20px 0 35px;font-size:20px;font-weight:600;white-space:nowrap}
+#equipment .equipment-tabs button.active{color:#02686a;border-color:#02686a}
+#equipment .equipment-tabs button:focus-visible{outline:2px solid #02686a;outline-offset:-4px}
+#equipment .equipment-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+#equipment .equipment-card{position:relative;min-width:0;min-height:0;padding:0;aspect-ratio:345/413;overflow:hidden;border-radius:20px;background:linear-gradient(180deg,#f8f8f8,#fff 46%);box-shadow:0 4px 10px rgba(0,0,0,.1)}
+#equipment .equipment-card-button{position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:transparent;text-align:left;color:#444}
+#equipment .equipment-card-button:focus-visible{outline:3px solid #02686a;outline-offset:-4px;border-radius:20px}
+#equipment .equipment-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:normal;transition:opacity .25s ease}
+#equipment .equipment-card-title,#equipment .equipment-card-subtitle{position:absolute;z-index:1;left:11.3%;right:8%;display:block;word-break:keep-all}
+#equipment .equipment-card-title{top:9%;font-size:20px;line-height:1.2;font-weight:700;color:#444}
+#equipment .equipment-card-subtitle{top:16.2%;font-size:16px;line-height:1.3;font-weight:700;color:#02686a}
+#equipment .equipment-card-detail{position:absolute;z-index:2;top:29%;left:11.3%;right:9%;display:block;font-size:14px;line-height:1.55;font-weight:400;color:#444;word-break:keep-all;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s}
+#equipment .equipment-card.is-open img{opacity:.25}
+#equipment .equipment-card.is-open .equipment-card-detail{opacity:1;visibility:visible}
+@media(hover:hover){#equipment .equipment-card:hover img{opacity:.25}#equipment .equipment-card:hover .equipment-card-detail{opacity:1;visibility:visible}}
+@media(max-width:1100px){#equipment .equipment-tabs{gap:50px}#equipment .equipment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){#equipment{padding-top:110px;padding-bottom:110px}#equipment .heading{margin-bottom:70px}#equipment .heading p{font-size:20px;line-height:1.5}#equipment .equipment-tabs{justify-content:flex-start;gap:35px;margin-bottom:45px}#equipment .equipment-tabs button{font-size:16px;flex:none;padding:18px 0 25px}}
+@media(max-width:600px){#equipment{padding-top:90px;padding-bottom:90px}#equipment .heading{margin-bottom:50px}#equipment .heading p{font-size:16px}#equipment .equipment-grid{grid-template-columns:1fr;gap:16px}#equipment .equipment-card{width:100%}#equipment .equipment-card-title{font-size:20px}#equipment .equipment-card-subtitle{font-size:16px}}
+@media(prefers-reduced-motion:reduce){#equipment .equipment-card img,#equipment .equipment-card-detail{transition:none}}
+
+/* 시설 사진 슬라이더 */
+#facilities{min-height:1268px;padding:200px 0;background:#f8f8f8;overflow:hidden}
+#facilities .heading{margin:0 auto 140px;padding:0 20px}
+#facilities .heading p{font-size:30px;line-height:40px;color:#444}
+.facility-carousel{--facility-center:710px;--facility-height:477px;position:relative;overflow:hidden;touch-action:pan-y;user-select:none;cursor:grab}
+.facility-carousel.is-dragging{cursor:grabbing}
+.facility-stage{position:relative;height:568px}
+.facility-photo{position:absolute;display:block;padding:0;border:0;border-radius:20px;overflow:hidden;background:#ddd;transform:translateX(-50%);box-shadow:0 10px 10px rgba(0,0,0,.1);cursor:pointer}
+.facility-photo img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.facility-photo::after{content:'';position:absolute;inset:0;background:rgba(177,177,177,var(--facility-wash,.6));pointer-events:none}
+.facility-photo:focus-visible{outline:3px solid #02686a;outline-offset:-4px}
+.facility-controls{position:absolute;z-index:30;left:calc(50% - var(--facility-center)/2 + 47px);right:calc(50% - var(--facility-center)/2 + 47px);top:calc(var(--facility-height)/2 - 29px);display:flex;justify-content:space-between;pointer-events:none}
+.facility-controls button{width:58px;height:58px;display:grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(255,255,255,.4);pointer-events:auto;cursor:pointer}
+.facility-controls button:hover{background:rgba(255,255,255,.58)}
+.facility-controls button:focus-visible{outline:3px solid #02686a;outline-offset:3px}
+.facility-controls span{width:16px;height:16px;border:solid #fff;border-width:0 0 2px 2px;transform:rotate(45deg);margin-left:7px}
+.facility-controls .facility-next span{transform:rotate(225deg);margin-left:0;margin-right:7px}
+.facility-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:900px){#facilities{min-height:0;padding:110px 0}#facilities .heading{margin-bottom:70px}#facilities .heading p{font-size:20px;line-height:1.5}.facility-stage{height:calc(var(--facility-height) + 75px)}.facility-controls{left:calc(50% - var(--facility-center)/2 + 20px);right:calc(50% - var(--facility-center)/2 + 20px)}}
+@media(max-width:600px){#facilities{padding:90px 0}#facilities .heading{margin-bottom:50px}#facilities .heading p{font-size:16px}.facility-stage{height:calc(var(--facility-height) + 45px)}.facility-controls{left:calc(50% - var(--facility-center)/2 + 12px);right:calc(50% - var(--facility-center)/2 + 12px);top:calc(var(--facility-height)/2 - 22px)}.facility-controls button{width:44px;height:44px}.facility-controls span{width:13px;height:13px}}
+
+/* 상담 안내 */
+#contact{min-height:583px;padding:150px 24px;background:#fff}
+#contact .heading{margin:0 0 80px}
+#contact .heading h2{font-size:40px;line-height:40px;margin:0 0 40px}
+#contact .heading p{font-size:30px;line-height:40px;color:#444;margin:0}
+#contact .contact-actions{display:flex;justify-content:center;gap:20px}
+#contact .contact-action{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:175px;height:43px;padding:0;border:0;border-radius:8px;color:#fff;font-size:14px;line-height:1;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+#contact .contact-action img{width:20px;height:20px;object-fit:contain}
+#contact .contact-phone{background:#4baaac}
+#contact .contact-kakao{background:#02686a}
+#contact .contact-action:focus-visible{outline:3px solid #02686a;outline-offset:4px}
+#contact .contact-kakao:disabled{opacity:1;cursor:not-allowed}
+@media(max-width:900px){#contact{min-height:0;padding:110px 24px}#contact .heading{margin-bottom:60px}#contact .heading h2{font-size:30px;line-height:1.3;margin-bottom:25px}#contact .heading p{font-size:20px;line-height:1.5}}
+@media(max-width:600px){#contact{padding:90px 18px}#contact .heading{margin-bottom:45px}#contact .heading h2{font-size:25px}#contact .heading p{font-size:16px}#contact .contact-actions{gap:12px}#contact .contact-action{width:min(175px,calc((100vw - 48px)/2));font-size:13px;gap:7px}}
+
+/* 진료시간 안내 */
+.hours{min-height:615px;padding:82px 0 83px;background:#f8f4f1 url('이미지/section17.jpg') center/cover no-repeat}
+.hours .hours-grid{width:710px;max-width:100%;margin-left:auto;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.hours .hours-grid article{height:215px;padding:42px 15px;border-radius:20px;background:#fff;box-shadow:0 10px 10px rgba(0,0,0,.1);text-align:center;color:#02686a}
+.hours .hours-grid h3{font-size:30px;line-height:30px;font-weight:700;margin:0 0 20px;color:#02686a}
+.hours .hours-grid b{display:inline-block;padding:5px 8px;border-radius:5px;background:#02686a;color:#fff;font-size:14px;line-height:14px;font-weight:600}
+.hours .hours-grid p{margin:18px 0 0;font-size:14px;line-height:24px;color:#444;font-weight:400}
+.hours .hours-grid article:last-child{background:#02686a;color:#fff}
+.hours .hours-grid article:last-child h3,.hours .hours-grid article:last-child p{color:#fff}
+.hours .hours-grid article:last-child b{background:#ee594f}
+@media(max-width:900px){.hours{min-height:0;background-position:30% center}.hours .hours-grid{width:min(600px,70%)}.hours .hours-grid article{padding-left:10px;padding-right:10px}.hours .hours-grid h3{font-size:25px}}
+@media(max-width:600px){.hours{padding:300px 0 70px;background-color:#faf6f3;background-size:auto 310px;background-position:24% top}.hours .hours-grid{width:100%;gap:12px}.hours .hours-grid article{height:200px;padding:35px 8px}.hours .hours-grid h3{font-size:23px;line-height:1.2;margin-bottom:16px}.hours .hours-grid b{font-size:13px}.hours .hours-grid p{font-size:12px;line-height:20px;margin-top:16px}}
+
+/* 오시는 길과 하단 정보 */
+#location{min-height:761px;padding:110px 0 80px;background:#02686a;color:#fff}
+#location .location-grid{display:grid;grid-template-columns:minmax(0,730fr) minmax(0,270fr) minmax(0,258fr);column-gap:5%;align-items:start}
+#location .location-map{position:relative;width:100%;height:410px;background:#e6eeed;overflow:hidden}
+#location .location-map iframe{display:block;width:100%;height:100%;border:0}
+#location .location-map>a{position:absolute;right:12px;bottom:12px;z-index:1;padding:8px 12px;background:#fff;color:#02686a;border-radius:4px;font-size:13px;box-shadow:0 2px 8px #0003}
+#location h2,#location h3{color:#fff;font-size:20px;line-height:1.3;margin:0 0 12px;font-weight:700}
+#location .location-address p{font-size:16px;line-height:22px;font-weight:700;margin:0;word-break:keep-all}
+#location .location-phone{display:inline-block;margin-top:50px;font-size:40px;line-height:1.2;font-weight:800;white-space:nowrap}
+#location .location-directions{display:grid;gap:20px}
+#location .location-directions p{font-size:15px;line-height:22px;margin:0;word-break:keep-all}
+#location .location-bottom{display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);gap:70px;align-items:start;margin-top:48px}
+#location .location-logo{width:205px;height:auto}
+#location .location-policies{display:flex;gap:40px;flex-wrap:wrap;font-size:18px;line-height:1.3;font-weight:700}
+#location .location-company p,#location .location-meta p{font-size:14px;line-height:22px;margin:22px 0 0;color:#fff}
+#location .location-meta{text-align:right}
+#location .location-social{display:flex;justify-content:flex-end;gap:20px}
+#location .location-social img{width:40px;height:40px;object-fit:contain}
+@media(max-width:1200px){#location .location-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px}#location .location-map{grid-row:span 2}#location .location-bottom{grid-template-columns:180px minmax(0,1fr);gap:35px}#location .location-meta{grid-column:2;text-align:left}#location .location-social{justify-content:flex-start}}
+@media(max-width:700px){#location{min-height:0;padding:80px 0 60px}#location .location-grid{grid-template-columns:1fr;gap:30px}#location .location-map{grid-row:auto;height:300px}#location .location-address p br{display:none}#location .location-phone{font-size:32px;margin-top:25px}#location .location-directions{gap:22px}#location .location-bottom{grid-template-columns:1fr;gap:28px;margin-top:50px}#location .location-meta{grid-column:auto}#location .location-policies{gap:16px;font-size:16px}#location .location-company p,#location .location-meta p{font-size:13px;line-height:1.7}#location .location-company p{overflow-wrap:anywhere}}
+
+/* 원 안쪽에서 둘러보는 파노라마 원근 */
+.care-stage{perspective:900px}
+
+/* 서로 이어지는 오목한 파노라마 필름 */
+.care-stage{perspective:none}
+.care-slide{transform:translate(-50%,-50%) translateX(calc(var(--slot-x,0) * (var(--care-width) + 6px))) skewY(var(--care-slope,0deg)) scaleY(var(--height-scale,1));transition:none}
+
+/* 파노라마 카드의 윗변과 아랫변을 같은 곡선에 맞춥니다. */
+.care-slide{transform:translate(-50%,-50%) translateX(calc(var(--slot-x,0) * (var(--care-width) + 6px)));transition:none}
+
+/* 사진 사이를 붙여 하나의 곡면처럼 이어줍니다. */
+.care-slide{border-radius:0;transform:translate(-50%,-50%) translateX(calc(var(--slot-x,0) * var(--care-width)));box-shadow:none}
