@@ -93,6 +93,7 @@ header.is-hidden{transform:translateY(-100%)}
 .director.lines-ready .credentials::before,.director.lines-ready .director-name::after{transition:none}
 .director.lines-ready.lines-visible .credentials::before,.director.lines-ready.lines-visible .director-name::after{transition:transform 1.1s ease}
 .director blockquote p{word-break:keep-all}
+.director-mobile-break{display:none}
 @media(max-width:600px){.credentials .director-name{grid-column:1;grid-row:1 / span 2}.credentials .director-career{grid-column:2;grid-row:1}.credentials .director-affiliations{grid-column:2;grid-row:2}}
 @media(prefers-reduced-motion:reduce){.director.lines-ready.lines-visible .credentials::before,.director.lines-ready.lines-visible .director-name::after{transition:none}}
 @media(max-width:600px){.director .credentials .director-name{grid-column:1;grid-row:1 / span 2}}
@@ -719,6 +720,12 @@ body>header{z-index:100}
   .director blockquote footer img{width:110px}
 }
 @media(max-width:600px){.director blockquote{height:400px}.director .portrait img{height:auto}}
+@media(max-width:900px){
+  .director{--director-mobile-height:max(510px,calc(min(88vw,470px) + 230px))}
+  .director .portrait,.director blockquote{height:var(--director-mobile-height)}
+  .director blockquote p{left:18px;top:65px;width:calc(100% - 36px);font-size:clamp(24px,6.15vw,34.5px);line-height:1.4;text-align:center;white-space:nowrap}
+  .director-mobile-break{display:inline}
+}
 /* 모바일 진료·시설 안내 문구의 지정 줄바꿈 */
 .mobile-copy-break{display:none}
 @media(max-width:600px){
