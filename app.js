@@ -14,11 +14,11 @@ const equipmentData=[
 ['Bovie','고주파 조직 절개·지혈 전기수술기','고주파 전류를 이용해 조직을 절개하거나 출혈 부위를 응고시킵니다. 수술 단계와 조직 상태에 맞춰 절개·지혈 기능을 활용합니다.'],
 ['Electric Pen Drive','척추 수술용 정밀 골절삭 기구','드릴과 절삭용 기구를 연결해 뼈를 다듬고 필요한 부위를 제거합니다. 척추·정형외과 수술에서 세밀한 골조직 처리를 돕습니다.'],
 ['Fujifilm NX700','혈액화학·장기 기능 분석기','간·신장 관련 수치와 혈당 등 혈액 속 여러 성분을 분석합니다. 장기 기능과 대사 상태를 평가하고 치료 전후의 변화를 확인합니다.'],
-['Bionote Vcheck','혈액 세포 정밀 분석기','적혈구·백혈구·혈소판 등 혈액 세포를 분석합니다. 빈혈, 염증 반응, 혈소판 수치 변화 등을 확인하는 기초 검사에 활용합니다.'],
-['Microsemi LC-662','혈액 세포 정밀 분석','적혈구·백혈구·혈소판 등 혈액 세포를 분석합니다. 빈혈, 염증 반응, 혈소판 수치 변화 등을 확인하는 기초 검사에 활용합니다.'],
+['Bionote Vcheck','염증·호르몬·심장사상충 분석기','췌장염(cPL/fPL), 호르몬 질환, 심장 사상충 등을 정량화된 수치로 정확하게 판독합니다.'],
+['Microsemi LC-662','혈액 세포 정밀 분석','빈혈, 염증, 혈소판 상태를 정밀하게 측정하여 아이의 면역 체계와 기초 건강을 면밀히 체크합니다.'],
 ['ABL9','혈액가스·전해질 균형 분석기','혈액의 산도와 산소·이산화탄소 분압, 전해질 수치를 분석합니다. 호흡과 산·염기 균형을 평가해 응급 진료와 치료 방향 결정에 필요한 정보를 제공합니다.'],
 ['Nikon Eclipse Ei','고배율 세포·검체 관찰 현미경','분변과 세포 검체 등을 확대해 관찰합니다. 세포의 형태와 기생충 등 진단에 필요한 단서를 확인합니다.'],
-['CF-10','혈액 성분 원심 분리기','간·신장 관련 수치와 혈당 등 혈액 속 여러 성분을 분석합니다. 장기 기능과 대사 상태를 평가하고 치료 전후의 변화를 확인합니다.'],
+['CF-10','혈액 성분 원심 분리기','혈액 및 요검사 시 성분을 안정적으로 분리하여 검사의 정확도를 높여주는 기초 필수 장비입니다.'],
 ['Topcon SL-D7','각막·수정체 정밀 검사 램프','가느다란 빛을 비추어 각막과 수정체 등 눈 앞부분을 확대 관찰합니다. 안구 구조의 변화를 살펴 각막 질환과 백내장 등의 평가에 활용합니다.'],
 ['Recende BL-610C','스케일링·치과 처치 덴탈 머신','스케일링과 치아 연마, 발치 과정 등에 필요한 기구를 연결해 사용합니다. 치아와 잇몸 상태에 맞춘 다양한 치과 처치를 돕습니다.'],
 ['KC Technology','외이도·고막 정밀 관찰 검이경','외이도와 고막을 확대해 관찰합니다. 귀 안의 염증·분비물·이물 등을 확인해 치료 계획 수립에 활용합니다.'],
@@ -33,22 +33,35 @@ function showEquipment(index,focus=false){
  equipmentCurrent=index;const start=[0,12,18][index],end=[12,18,25][index];
  equipmentTabs.querySelectorAll('button').forEach((tab,i)=>{const active=i===index;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});
  equipmentGrid.setAttribute('aria-labelledby',`equipment-tab-${index}`);equipmentGrid.replaceChildren();
- equipmentData.slice(start,end).forEach((item,i)=>{const n=start+i+1;const article=document.createElement('article');article.className='equipment-card';const button=document.createElement('button');button.type='button';button.className='equipment-card-button';button.setAttribute('aria-expanded','false');button.setAttribute('aria-label',`${item[0]} 상세 설명`);const image=document.createElement('img');image.src=`이미지/section14_${n}.jpg`;image.alt='';image.loading='lazy';const title=document.createElement('span');title.className='equipment-card-title';title.textContent=item[0];const subtitle=document.createElement('span');subtitle.className='equipment-card-subtitle';subtitle.textContent=item[1];const details=document.createElement('span');details.className='equipment-card-detail';details.textContent=item[2];button.append(image,title,subtitle,details);button.addEventListener('click',()=>{const open=article.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open))});article.append(button);equipmentGrid.append(article)});
+ equipmentData.slice(start,end).forEach((item,i)=>{const n=start+i+1;const article=document.createElement('article');article.className='equipment-card';const button=document.createElement('button');button.type='button';button.className='equipment-card-button';button.setAttribute('aria-expanded','false');button.setAttribute('aria-label',`${item[0]} 상세 설명`);const image=document.createElement('img');image.src=`images/section14_${n}.jpg`;image.alt='';image.loading='lazy';const title=document.createElement('span');title.className='equipment-card-title';title.textContent=item[0];const subtitle=document.createElement('span');subtitle.className='equipment-card-subtitle';subtitle.textContent=item[1];const details=document.createElement('span');details.className='equipment-card-detail';details.textContent=item[2];button.append(image,title,subtitle,details);button.addEventListener('click',()=>{const open=article.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open))});article.append(button);equipmentGrid.append(article)});
  if(focus)equipmentTabs.querySelectorAll('button')[index].focus();
 }
 equipmentGroups.forEach((label,i)=>{const tab=document.createElement('button');tab.type='button';tab.id=`equipment-tab-${i}`;tab.setAttribute('role','tab');tab.setAttribute('aria-controls','equipment-grid');tab.textContent=label;tab.addEventListener('click',()=>showEquipment(i));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(equipmentCurrent+1)%equipmentGroups.length;else if(event.key==='ArrowLeft')next=(equipmentCurrent-1+equipmentGroups.length)%equipmentGroups.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=equipmentGroups.length-1;else return;event.preventDefault();showEquipment(next,true)});equipmentTabs.append(tab)});
 showEquipment(0);
-const menu=document.querySelector('.menu'),nav=document.querySelector('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}});
+const menu=document.querySelector('.menu'),nav=document.querySelector('nav'),mobileNav=matchMedia('(max-width:900px)');
+function clearNavSelection(){nav.querySelectorAll('a.is-selected').forEach(link=>link.classList.remove('is-selected'))}
+function closeMobileNav(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');clearNavSelection()}
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));if(!open)clearNavSelection()});
+nav.addEventListener('click',event=>{const link=event.target.closest('a');if(!link||!nav.contains(link))return;if(mobileNav.matches&&nav.classList.contains('open')&&event.detail!==0&&!link.classList.contains('is-selected')){event.preventDefault();clearNavSelection();link.classList.add('is-selected');return}closeMobileNav()});
+mobileNav.addEventListener('change',closeMobileNav);
 
-// Main visual carousel: pointer swipes and explicit controls.
+// Main visual carousel: autoplay, pause/play and pointer swipes.
 const hero=document.querySelector('.hero');
 const heroSlides=[...hero.querySelectorAll('.hero-slide')];
-const heroDots=[...hero.querySelectorAll('.hero-dots button')];
-let heroIndex=0, heroStart=null;
-function showHero(index){heroIndex=(index+heroSlides.length)%heroSlides.length;heroSlides.forEach((slide,i)=>{const active=i===heroIndex;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));heroDots[i].classList.toggle('is-active',active);if(active)heroDots[i].setAttribute('aria-current','true');else heroDots[i].removeAttribute('aria-current')})}
-hero.querySelector('.hero-prev').addEventListener('click',()=>showHero(heroIndex-1));
-hero.querySelector('.hero-next').addEventListener('click',()=>showHero(heroIndex+1));
-heroDots.forEach((dot,i)=>dot.addEventListener('click',()=>showHero(i)));
+const heroProgress=hero.querySelector('.hero-progress span'),heroCount=hero.querySelector('.hero-count');
+const heroPause=hero.querySelector('.hero-pause'),heroPlay=hero.querySelector('.hero-play');
+const heroReduce=matchMedia('(prefers-reduced-motion: reduce)');
+let heroIndex=0,heroStart=null,heroPlaying=!heroReduce.matches,heroVisible=true,heroElapsed=0,heroLast=performance.now();
+function updateHeroProgress(){heroProgress.style.width=`${Math.min(100,heroElapsed/50)}%`}
+function updateHeroControls(){heroCount.textContent=`${heroIndex+1}/${heroSlides.length}`;heroPause.hidden=heroPlaying;heroPlay.hidden=!heroPlaying;updateHeroProgress()}
+function setHeroPlaying(playing){heroPlaying=playing;heroLast=performance.now();updateHeroControls()}
+heroPause.addEventListener('click',()=>{setHeroPlaying(true);heroPlay.focus({preventScroll:true})});
+heroPlay.addEventListener('click',()=>{setHeroPlaying(false);heroPause.focus({preventScroll:true})});
+if('IntersectionObserver' in window)new IntersectionObserver(entries=>{heroVisible=entries.some(entry=>entry.isIntersecting);heroLast=performance.now()},{threshold:.1}).observe(hero);
+document.addEventListener('visibilitychange',()=>{heroLast=performance.now()});
+function showHero(index){heroElapsed=0;heroIndex=(index+heroSlides.length)%heroSlides.length;heroSlides.forEach((slide,i)=>{const active=i===heroIndex;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active))});updateHeroControls()}
+showHero(0);
+setInterval(()=>{const now=performance.now(),dt=Math.min(250,now-heroLast);heroLast=now;if(!heroPlaying||!heroVisible||document.hidden)return;heroElapsed+=dt;if(heroElapsed>=5000){heroProgress.style.transition='none';showHero(heroIndex+1);requestAnimationFrame(()=>heroProgress.style.removeProperty('transition'))}else updateHeroProgress()},100);
 hero.addEventListener('pointerdown',event=>{if(event.button!==0||event.target.closest('button'))return;heroStart={x:event.clientX,y:event.clientY,id:event.pointerId};hero.classList.add('is-dragging');hero.setPointerCapture(event.pointerId)});
 hero.addEventListener('pointerup',event=>{if(!heroStart||event.pointerId!==heroStart.id)return;const dx=event.clientX-heroStart.x,dy=event.clientY-heroStart.y;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))showHero(heroIndex+(dx<0?1:-1));heroStart=null;hero.classList.remove('is-dragging')});
 hero.addEventListener('pointercancel',()=>{heroStart=null;hero.classList.remove('is-dragging')});
@@ -76,7 +89,7 @@ window.addEventListener('scroll',()=>{
   const hide=difference>0;
   siteHeader.classList.toggle('is-hidden',hide);
   siteHeader.inert=hide;
-  if(hide){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}
+  if(hide)closeMobileNav()
   navScrollPosition=current;
 },{passive:true});
 
@@ -98,12 +111,13 @@ if(stats && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-mo
   function revealStats(){
     const rect=stats.getBoundingClientRect();
     const storyBottom=storyWindow.getBoundingClientRect().bottom;
-    const visible=Math.max(0,Math.min(innerHeight,rect.bottom)-Math.max(0,rect.top,storyBottom));
-    if(visible>=Math.min(rect.height,innerHeight)*.25 && !stats.classList.contains('is-visible')){
+    const value=stats.querySelector('.stat-value').getBoundingClientRect();
+    const valueIsVisible=value.top>=Math.max(0,storyBottom) && value.top<innerHeight*.82 && value.bottom>0;
+    if(valueIsVisible && !stats.classList.contains('is-visible')){
       stats.classList.remove('is-resetting');
       void stats.offsetWidth;
       stats.classList.add('is-visible');
-    }else if(visible===0 && stats.classList.contains('is-visible')){
+    }else if((rect.bottom<=0 || rect.top>=innerHeight) && stats.classList.contains('is-visible')){
       stats.classList.add('is-resetting');
       stats.classList.remove('is-visible');
     }
@@ -121,83 +135,8 @@ if(director && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced
 
 // Switch medical staff by department, with keyboard navigation.
 const teamTabs=[...document.querySelectorAll('#team [role="tab"]')];
-function selectTeamTab(selected,focus=false){teamTabs.forEach(tab=>{const active=tab===selected;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;document.getElementById(tab.getAttribute('aria-controls')).hidden=!active});if(focus)selected.focus()}
+function selectTeamTab(selected,focus=false){teamTabs.forEach(tab=>{const active=tab===selected;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;const panel=document.getElementById(tab.getAttribute('aria-controls'));panel.hidden=!active;if(active){panel.classList.remove('team-enter');void panel.offsetWidth;panel.classList.add('team-enter')}});if(focus)selected.focus()}
 teamTabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectTeamTab(tab));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%teamTabs.length;else if(event.key==='ArrowLeft')next=(index-1+teamTabs.length)%teamTabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=teamTabs.length-1;else return;event.preventDefault();selectTeamTab(teamTabs[next],true)})});
-
-// Eight images move continuously around a curved, perspective ring.
-const careCarousel=document.querySelector('.care-carousel');
-const careStage=careCarousel.querySelector('.care-stage');
-const careOriginals=[...careCarousel.querySelectorAll('.care-slide')];
-careOriginals.forEach(slide=>careStage.insertBefore(slide.cloneNode(true),careStage.querySelector('.care-detail-frame')));
-const careSlides=[...careCarousel.querySelectorAll('.care-slide')];
-const careSvgNS='http://www.w3.org/2000/svg';
-const careMaskSvg=document.createElementNS(careSvgNS,'svg');
-careMaskSvg.setAttribute('width','0');careMaskSvg.setAttribute('height','0');careMaskSvg.setAttribute('aria-hidden','true');careMaskSvg.style.position='absolute';
-const careMaskDefs=document.createElementNS(careSvgNS,'defs');careMaskSvg.append(careMaskDefs);careStage.append(careMaskSvg);
-const careMasks=careSlides.map((slide,i)=>{const clip=document.createElementNS(careSvgNS,'clipPath');clip.id=`care-curve-mask-${i}`;clip.setAttribute('clipPathUnits','objectBoundingBox');const path=document.createElementNS(careSvgNS,'path');clip.append(path);careMaskDefs.append(clip);slide.style.clipPath=`url(#${clip.id})`;return path});
-const careDetail=careCarousel.querySelector('.care-detail');
-const careDetailFrame=careCarousel.querySelector('.care-detail-frame');
-function alignCareDetail(){careDetailFrame.style.left=`${Math.round((careStage.clientWidth-careDetailFrame.offsetWidth)/2)}px`;careDetailFrame.style.top=`${Math.round((careStage.clientHeight-careDetailFrame.offsetHeight)/2)}px`}
-window.addEventListener('resize',alignCareDetail);
-const careData=careOriginals.map(slide=>({title:slide.querySelector('.care-slide-copy strong').textContent,description:slide.querySelector('.care-slide-description').textContent,tags:[...slide.querySelectorAll('.care-tags span')].map(tag=>tag.textContent)}));
-const careReducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-let careIndex=0,carePosition=0,carePointer=null,careDragged=false,careAnimation=0;
-const careWrap=value=>((value%careData.length)+careData.length)%careData.length;
-function renderCare(position){
-  const frameWidth=parseFloat(getComputedStyle(careSlides[0]).width),frameHeight=careDetailFrame.offsetHeight,gap=0;
-  const halfBase=frameHeight/2,curveRadius=frameWidth*.55,curveSlope=.13;
-  // Every card samples the same continuous curve in viewport coordinates.
-  const halfAt=x=>halfBase+curveSlope*(Math.hypot(x,curveRadius)-curveRadius);
-  const halfDerivative=x=>curveSlope*x/Math.hypot(x,curveRadius);
-  careSlides.forEach((slide,i)=>{
-    const n=careSlides.length,slot=((i-position+n*10+n/2)%n)-n/2,distance=Math.abs(slot),visible=distance<5.5;
-    const center=slot*(frameWidth+gap),xAt=u=>center+(u-.5)*frameWidth;
-    const halfLeft=halfAt(xAt(0)),halfRight=halfAt(xAt(1)),halfMax=Math.max(halfLeft,halfRight),height=halfMax*2;
-    const top=u=>(halfMax-halfAt(xAt(u)))/height,bottom=u=>1-top(u);
-    const topDerivative=u=>-halfDerivative(xAt(u))*frameWidth/height;
-    const rx=0,ry=0,u0=rx,u1=1-rx,du=u1-u0;
-    const c1=u0+du/3,c2=u1-du/3;
-    const topC1=top(u0)+topDerivative(u0)*du/3,topC2=top(u1)-topDerivative(u1)*du/3;
-    const bottomC1=bottom(u1)-topDerivative(u1)*(-du)/3,bottomC2=bottom(u0)+topDerivative(u0)*(-du)/3;
-    careMasks[i].setAttribute('d',`M 0 ${top(0)+ry} Q 0 ${top(0)} ${u0} ${top(u0)} C ${c1} ${topC1} ${c2} ${topC2} ${u1} ${top(u1)} Q 1 ${top(1)} 1 ${top(1)+ry} L 1 ${bottom(1)-ry} Q 1 ${bottom(1)} ${u1} ${bottom(u1)} C ${c2} ${bottomC1} ${c1} ${bottomC2} ${u0} ${bottom(u0)} Q 0 ${bottom(0)} 0 ${bottom(0)-ry} Z`);
-    slide.style.height=`${height}px`;
-    slide.style.setProperty('--slot-x',slot.toFixed(4));
-    slide.style.setProperty('--visibility',visible?'1':'0');
-    slide.style.setProperty('--layer',String(20-Math.min(19,Math.round(distance*3))));
-    slide.tabIndex=visible?0:-1;slide.style.pointerEvents=visible?'auto':'none';
-    slide.querySelector('.care-slide-copy').setAttribute('aria-hidden','true');
-  });
-}
-function finishCare(index){
-  careIndex=careWrap(index);const item=careData[careIndex];
-  const centerSlot=((Math.round(carePosition)%careSlides.length)+careSlides.length)%careSlides.length;
-  careSlides.forEach((slide,i)=>{slide.classList.toggle('is-center',i===centerSlot);slide.setAttribute('aria-current',String(i===centerSlot))});
-  careDetail.querySelector('h3').textContent=item.title;careDetail.querySelector('p').textContent=item.description;
-  const tags=careDetail.querySelector('.care-detail-tags');tags.replaceChildren(...item.tags.map(label=>{const tag=document.createElement('span');tag.textContent=label;return tag}));
-  careCarousel.querySelector('.care-count').textContent=`${String(careIndex+1).padStart(2,'0')} / 08`;
-  requestAnimationFrame(()=>careDetail.classList.add('is-visible'));
-}
-function hideCareDetail(){careDetail.classList.remove('is-visible');careSlides.forEach(slide=>slide.classList.remove('is-center'))}
-function animateCare(target){
-  cancelAnimationFrame(careAnimation);hideCareDetail();
-  const from=carePosition,difference=target-from;
-  if(careReducedMotion.matches||Math.abs(difference)<.001){carePosition=target;renderCare(carePosition);finishCare(Math.round(target));return}
-  const duration=Math.min(900,500+Math.abs(difference)*100);let started=null;
-  function frame(time){if(started===null)started=time;const progress=Math.min(1,(time-started)/duration);const ease=1-Math.pow(1-progress,3);carePosition=from+difference*ease;renderCare(carePosition);if(progress<1)careAnimation=requestAnimationFrame(frame);else{carePosition=target;renderCare(carePosition);finishCare(Math.round(target))}}
-  careAnimation=requestAnimationFrame(frame);
-}
-function rotateCare(direction){animateCare(Math.round(carePosition)+direction)}
-function chooseCare(index){const current=Math.round(carePosition),n=careData.length,relative=((index-careWrap(current)+n+n/2)%n)-n/2;animateCare(current+relative)}
-alignCareDetail();renderCare(0);finishCare(0);
-window.addEventListener('resize',()=>renderCare(carePosition));
-careCarousel.querySelector('.care-prev').addEventListener('click',()=>rotateCare(-1));
-careCarousel.querySelector('.care-next').addEventListener('click',()=>rotateCare(1));
-careSlides.forEach((slide,i)=>slide.addEventListener('click',()=>{if(careDragged){careDragged=false;return}chooseCare(i%careData.length)}));
-careCarousel.addEventListener('pointerdown',event=>{if(event.button!==0||event.target.closest('.care-controls'))return;cancelAnimationFrame(careAnimation);carePointer={id:event.pointerId,x:event.clientX,y:event.clientY,position:carePosition,moved:false,samples:[{x:event.clientX,time:performance.now()}]};careDragged=false;careCarousel.classList.add('is-dragging');(event.target.closest('.care-slide')||careCarousel).setPointerCapture(event.pointerId)});
-careCarousel.addEventListener('pointermove',event=>{if(!carePointer||event.pointerId!==carePointer.id)return;const dx=event.clientX-carePointer.x,dy=event.clientY-carePointer.y;if(!carePointer.moved&&Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)){carePointer.moved=true;hideCareDetail()}if(carePointer.moved){const step=parseFloat(getComputedStyle(careSlides[0]).width);carePosition=carePointer.position-dx/step;renderCare(carePosition);const now=performance.now();carePointer.samples.push({x:event.clientX,time:now});carePointer.samples=carePointer.samples.filter(sample=>now-sample.time<120)}});
-careCarousel.addEventListener('pointerup',event=>{if(!carePointer||event.pointerId!==carePointer.id)return;const pointer=carePointer;carePointer=null;careCarousel.classList.remove('is-dragging');if(pointer.moved){careDragged=true;const now=performance.now(),samples=pointer.samples.filter(sample=>now-sample.time<120);let velocity=0;if(samples.length>1){const first=samples[0],last=samples[samples.length-1];velocity=(last.x-first.x)/Math.max(1,last.time-first.time)}const step=parseFloat(getComputedStyle(careSlides[0]).width);const drift=careReducedMotion.matches?0:Math.max(-2,Math.min(2,-velocity*320/step));animateCare(Math.round(carePosition+drift));setTimeout(()=>{careDragged=false},300)}else if(Math.abs(carePosition-Math.round(carePosition))>.001)animateCare(Math.round(carePosition))});
-careCarousel.addEventListener('pointercancel',()=>{if(carePointer){carePointer=null;careCarousel.classList.remove('is-dragging');animateCare(Math.round(carePosition))}});
-careCarousel.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();rotateCare(event.key==='ArrowRight'?1:-1)}});
 
 // Internal medicine tabs and their supplied descriptions.
 const internalData=[
@@ -216,7 +155,7 @@ function selectInternal(index,focus=false){
   internalTabs.querySelectorAll('button').forEach((button,i)=>{const selected=i===index;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});
   internalPanel.setAttribute('aria-labelledby',`internal-tab-${index}`);
   internalPanel.querySelector('h3').textContent=item.title;internalPanel.querySelector('.internal-intro strong').textContent=item.headline;internalPanel.querySelector('.internal-intro p').textContent=item.description;internalPanel.querySelector('.internal-diseases p').textContent=item.diseases;
-  const version=++internalImageVersion,source=`이미지/section6_${index+1}.jpg`,probe=new Image();
+  const version=++internalImageVersion,source=`images/section6_${index+1}.jpg`,probe=new Image();
   internalImage.hidden=true;internalPlaceholder.hidden=false;
   probe.onload=()=>{if(version!==internalImageVersion)return;internalImage.src=source;internalImage.alt=`${item.title} 진료 이미지`;internalImage.hidden=false;internalPlaceholder.hidden=true};
   probe.onerror=()=>{if(version!==internalImageVersion)return;internalImage.hidden=true;internalPlaceholder.hidden=false};probe.src=source;
@@ -225,21 +164,39 @@ function selectInternal(index,focus=false){
 internalData.forEach((item,index)=>{const button=document.createElement('button');button.type='button';button.id=`internal-tab-${index}`;button.setAttribute('role','tab');button.setAttribute('aria-controls','internal-panel');button.textContent=item.tab;button.addEventListener('click',()=>selectInternal(index));button.addEventListener('keydown',event=>{let target;if(event.key==='ArrowRight')target=(internalCurrent+1)%internalData.length;else if(event.key==='ArrowLeft')target=(internalCurrent-1+internalData.length)%internalData.length;else if(event.key==='Home')target=0;else if(event.key==='End')target=internalData.length-1;else return;event.preventDefault();selectInternal(target,true)});internalTabs.append(button)});
 selectInternal(0);
 
-// Horizontal diagnostic steps: drag, touch, buttons, and keyboard scrolling.
+// 자동으로 순환하는 진단 과정: 사용자가 조작할 때는 자동 이동을 잠시 쉽니다.
 const diagnosticTrack=document.querySelector('.diagnostic-track');
-const diagnosticPrev=document.querySelector('.diagnostic-prev');
-const diagnosticNext=document.querySelector('.diagnostic-next');
 const diagnosticProgress=document.querySelector('.diagnostic-progress');
 const diagnosticThumb=diagnosticProgress.querySelector('span');
-let diagnosticPointer=null,diagnosticMomentum=0;
-function updateDiagnostic(){const max=Math.max(0,diagnosticTrack.scrollWidth-diagnosticTrack.clientWidth);const fraction=max?diagnosticTrack.scrollLeft/max:0;const width=max?Math.max(.15,diagnosticTrack.clientWidth/diagnosticTrack.scrollWidth):1;diagnosticThumb.style.setProperty('--thumb-width',`${width*100}%`);diagnosticThumb.style.setProperty('--thumb-offset',`${fraction*(diagnosticProgress.clientWidth*(1-width))}px`);diagnosticProgress.setAttribute('aria-valuenow',String(Math.round(fraction*100)));diagnosticPrev.disabled=diagnosticTrack.scrollLeft<=1;diagnosticNext.disabled=diagnosticTrack.scrollLeft>=max-1}
-function diagnosticMove(direction){cancelAnimationFrame(diagnosticMomentum);const card=diagnosticTrack.querySelector('article');const distance=Math.max(card.offsetWidth*.75,diagnosticTrack.clientWidth*.65);diagnosticTrack.scrollBy({left:direction*distance,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})}
-diagnosticPrev.addEventListener('click',()=>diagnosticMove(-1));diagnosticNext.addEventListener('click',()=>diagnosticMove(1));diagnosticTrack.addEventListener('scroll',updateDiagnostic,{passive:true});window.addEventListener('resize',updateDiagnostic);
-diagnosticTrack.addEventListener('pointerdown',event=>{if(event.pointerType!=='mouse'||event.button!==0)return;cancelAnimationFrame(diagnosticMomentum);const now=performance.now();diagnosticPointer={id:event.pointerId,x:event.clientX,left:diagnosticTrack.scrollLeft,lastX:event.clientX,lastTime:now,velocity:0};diagnosticTrack.classList.add('is-dragging');diagnosticTrack.setPointerCapture(event.pointerId)});
+const diagnosticItems=[...diagnosticTrack.querySelectorAll('article')];
+const diagnosticClones=diagnosticItems.map(item=>{const clone=item.cloneNode(true);clone.setAttribute('aria-hidden','true');diagnosticTrack.append(clone);return clone});
+const diagnosticMotion=matchMedia('(prefers-reduced-motion: reduce)');
+let diagnosticPointer=null,diagnosticMomentum=0,diagnosticTimer=0,diagnosticVisible=false,diagnosticHover=false,diagnosticLastInteraction=0;
+function diagnosticCycle(){return diagnosticClones[0].offsetLeft-diagnosticItems[0].offsetLeft}
+function updateDiagnostic(){
+  const cycle=diagnosticCycle();if(!cycle)return;
+  if(diagnosticTrack.scrollLeft>=cycle-.5){diagnosticTrack.scrollLeft-=cycle;return}
+  const fraction=Math.max(0,Math.min(1,diagnosticTrack.scrollLeft/cycle));
+  const width=Math.min(1,Math.max(.15,diagnosticTrack.clientWidth/cycle));
+  diagnosticThumb.style.setProperty('--thumb-width',`${width*100}%`);
+  diagnosticThumb.style.setProperty('--thumb-offset',`${fraction*(diagnosticProgress.clientWidth*(1-width))}px`);
+  diagnosticProgress.setAttribute('aria-valuenow',String(Math.round(fraction*100)));
+}
+function diagnosticStep(){const a=diagnosticItems[0],b=diagnosticItems[1];return b.offsetLeft-a.offsetLeft}
+function diagnosticMove(direction){cancelAnimationFrame(diagnosticMomentum);diagnosticLastInteraction=performance.now();diagnosticTrack.scrollBy({left:direction*diagnosticStep(),behavior:diagnosticMotion.matches?'instant':'smooth'})}
+function scheduleDiagnostic(delay=3200){clearTimeout(diagnosticTimer);diagnosticTimer=setTimeout(()=>{if(diagnosticVisible&&!document.hidden&&!diagnosticMotion.matches&&!diagnosticPointer&&!diagnosticHover&&performance.now()-diagnosticLastInteraction>4000){diagnosticTrack.scrollBy({left:diagnosticStep(),behavior:'smooth'})}scheduleDiagnostic(3200)},delay)}
+diagnosticTrack.addEventListener('scroll',updateDiagnostic,{passive:true});window.addEventListener('resize',updateDiagnostic);
+diagnosticTrack.addEventListener('mouseenter',()=>{diagnosticHover=true});diagnosticTrack.addEventListener('mouseleave',()=>{diagnosticHover=false;diagnosticLastInteraction=performance.now()});
+diagnosticTrack.addEventListener('focusin',()=>{diagnosticHover=true});diagnosticTrack.addEventListener('focusout',()=>{diagnosticHover=false;diagnosticLastInteraction=performance.now()});
+diagnosticTrack.addEventListener('pointerdown',event=>{if(event.pointerType!=='mouse'||event.button!==0)return;cancelAnimationFrame(diagnosticMomentum);diagnosticLastInteraction=performance.now();const now=performance.now();diagnosticPointer={id:event.pointerId,x:event.clientX,left:diagnosticTrack.scrollLeft,lastX:event.clientX,lastTime:now,velocity:0};diagnosticTrack.classList.add('is-dragging');diagnosticTrack.setPointerCapture(event.pointerId)});
 diagnosticTrack.addEventListener('pointermove',event=>{if(!diagnosticPointer||event.pointerId!==diagnosticPointer.id)return;const now=performance.now(),elapsed=Math.max(1,now-diagnosticPointer.lastTime),velocity=(diagnosticPointer.lastX-event.clientX)/elapsed;diagnosticPointer.velocity=diagnosticPointer.velocity*.55+Math.max(-2,Math.min(2,velocity))*.45;diagnosticPointer.lastX=event.clientX;diagnosticPointer.lastTime=now;diagnosticTrack.scrollLeft=diagnosticPointer.left-(event.clientX-diagnosticPointer.x)});
-function endDiagnosticDrag(event){if(!diagnosticPointer||event.pointerId!==diagnosticPointer.id)return;let velocity=performance.now()-diagnosticPointer.lastTime<90?diagnosticPointer.velocity:0;diagnosticPointer=null;diagnosticTrack.classList.remove('is-dragging');if(event.type==='pointercancel'||matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(velocity)<.08)return;let previous=null;function glide(time){if(previous===null){previous=time;diagnosticMomentum=requestAnimationFrame(glide);return}const elapsed=Math.min(32,time-previous);previous=time;const before=diagnosticTrack.scrollLeft;diagnosticTrack.scrollLeft+=velocity*elapsed;velocity*=Math.exp(-elapsed/220);if(Math.abs(velocity)>.03&&Math.abs(diagnosticTrack.scrollLeft-before)>.01)diagnosticMomentum=requestAnimationFrame(glide)}diagnosticMomentum=requestAnimationFrame(glide)}
+function endDiagnosticDrag(event){if(!diagnosticPointer||event.pointerId!==diagnosticPointer.id)return;let velocity=performance.now()-diagnosticPointer.lastTime<90?diagnosticPointer.velocity:0;diagnosticPointer=null;diagnosticLastInteraction=performance.now();diagnosticTrack.classList.remove('is-dragging');if(event.type==='pointercancel'||diagnosticMotion.matches||Math.abs(velocity)<.08)return;let previous=null;function glide(time){if(previous===null){previous=time;diagnosticMomentum=requestAnimationFrame(glide);return}const elapsed=Math.min(32,time-previous);previous=time;const before=diagnosticTrack.scrollLeft;diagnosticTrack.scrollLeft+=velocity*elapsed;velocity*=Math.exp(-elapsed/220);if(Math.abs(velocity)>.03&&Math.abs(diagnosticTrack.scrollLeft-before)>.01)diagnosticMomentum=requestAnimationFrame(glide)}diagnosticMomentum=requestAnimationFrame(glide)}
 diagnosticTrack.addEventListener('pointerup',endDiagnosticDrag);diagnosticTrack.addEventListener('pointercancel',endDiagnosticDrag);
+diagnosticTrack.addEventListener('wheel',()=>{diagnosticLastInteraction=performance.now()},{passive:true});
 diagnosticTrack.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();diagnosticMove(event.key==='ArrowRight'?1:-1)}});
+if('IntersectionObserver' in window)new IntersectionObserver(entries=>{diagnosticVisible=entries.some(entry=>entry.isIntersecting);if(diagnosticVisible)scheduleDiagnostic(1800)},{threshold:.25}).observe(diagnosticTrack);else{diagnosticVisible=true;scheduleDiagnostic()}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)scheduleDiagnostic()});
+diagnosticMotion.addEventListener('change',()=>scheduleDiagnostic());
 updateDiagnostic();
 
 // Surgical department tabs.
@@ -247,7 +204,7 @@ const surgeryData=[
 {tab:'일반외과',title:'일반외과',headline:'피부와 복부 장기의 수술 질환을 다룹니다',description:'종양 제거, 위장관 이물 제거와 장 수술, 방광·자궁 수술 등을 시행할 수 있습니다.',diseases:'피부·연부조직 종양 · 위장관 이물 및 장폐색 · 방광결석 · 자궁축농증'},
 {tab:'정형외과',title:'정형외과',headline:'뼈와 관절, 인대의 손상과 변형을 치료합니다',description:'골절 고정, 슬개골 탈구 교정, 십자인대 손상에 대한 TPLO 등 환자 상태에 맞는 수술을 고려합니다.',diseases:'골절 · 슬개골 탈구 · 전십자인대 파열 · 고관절 질환'},
 {tab:'신경외과',title:'신경외과',headline:'척수·신경 압박을 섬세하게 진료합니다',description:'디스크로 인한 신경 압박을 해소하는 감압술이나 척추를 안정시키는 수술 등을 고려합니다.',diseases:'추간판 질환(디스크) · 척수 압박 · 척추 불안정성 · 척추 손상'},
-{tab:'흉부외과',title:'흉부외과',headline:'폐와 흉강 내 장기의 질환을 살핍니다',description:'검사 결과에 따라 폐엽 절제, 흉강 내 종괴 제거, 횡격막 탈장 교정, 식도 이물 제거 등을 시행할 수 있습니다.',diseases:'지속성 기흉 · 폐엽 종양 · 횡격막 탈장 · 식도 이물'},
+{tab:'최소침습외과',title:'최소침습외과',headline:'절개 부담을 줄이는 최소침습 수술',description:'복강경·흉강경으로 내부를 확인하며 수술합니다. 환자 상태에 맞춰 절개 범위와 조직 손상을 줄이는 수술을 계획합니다.',diseases:'복강경 중성화 · 복강경 복부 장기 수술 · 흉강경 수술'},
 {tab:'응급외과',title:'응급외과',headline:'급성 질환과 외상에 신속히 대응합니다',description:'먼저 환자 상태를 안정화하고, 검사 결과에 따라 응급 수술 여부와 시기를 결정합니다.',diseases:'위확장·염전(GDV) · 장폐색 및 장 천공 · 자궁축농증 · 외상에 따른 내부 출혈'}
 ];
 const surgeryTabs=document.querySelector('.surgery-tabs'),surgeryPanel=document.querySelector('#surgery-panel'),surgeryImage=surgeryPanel.querySelector('img'),surgeryPlaceholder=surgeryPanel.querySelector('.surgery-image-placeholder');
@@ -257,7 +214,7 @@ function selectSurgery(index,focus=false){
   surgeryTabs.querySelectorAll('button').forEach((button,i)=>{const selected=i===index;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});
   surgeryPanel.setAttribute('aria-labelledby',`surgery-tab-${index}`);
   surgeryPanel.querySelector('h3').textContent=item.title;surgeryPanel.querySelector('.surgery-intro strong').textContent=item.headline;surgeryPanel.querySelector('.surgery-intro p').textContent=item.description;surgeryPanel.querySelector('.surgery-diseases p').textContent=item.diseases;
-  const version=++surgeryImageVersion,source=`이미지/section8_${index+1}.jpg`,probe=new Image();
+  const version=++surgeryImageVersion,source=`images/section8_${index+1}.jpg`,probe=new Image();
   surgeryImage.hidden=true;surgeryPlaceholder.hidden=false;
   probe.onload=()=>{if(version!==surgeryImageVersion)return;surgeryImage.src=source;surgeryImage.alt=`${item.title} 진료 이미지`;surgeryImage.hidden=false;surgeryPlaceholder.hidden=true};
   probe.onerror=()=>{if(version!==surgeryImageVersion)return;surgeryImage.hidden=true;surgeryPlaceholder.hidden=false};probe.src=source;
@@ -293,7 +250,7 @@ function selectOral(index,focus=false){
  oralCurrent=index;const item=oralData[index];
  oralTabs.querySelectorAll('button').forEach((button,i)=>{const active=i===index;button.classList.toggle('active',active);button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1});
  oralPanel.setAttribute('aria-labelledby',`oral-tab-${index}`);oralPanel.querySelector('h3').textContent=item.title;oralPanel.querySelector('.oral-intro strong').textContent=item.headline;oralPanel.querySelector('.oral-intro p').textContent=item.description;oralPanel.querySelector('.oral-symptoms p').textContent=item.symptoms;
- oralImage.src=`이미지/section11_${index+1}.jpg`;oralImage.alt=`${item.title} 구강 질환 이미지`;
+ oralImage.src=`images/section11_${index+1}.jpg`;oralImage.alt=`${item.title} 구강 질환 이미지`;
  if(focus){const button=oralTabs.querySelectorAll('button')[index];button.focus();button.scrollIntoView({block:'nearest',inline:'nearest'})}
 }
 oralData.forEach((item,index)=>{const button=document.createElement('button');button.type='button';button.id=`oral-tab-${index}`;button.setAttribute('role','tab');button.setAttribute('aria-controls','oral-panel');button.textContent=item.tab;button.addEventListener('click',()=>selectOral(index));button.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(oralCurrent+1)%oralData.length;else if(event.key==='ArrowLeft')next=(oralCurrent-1+oralData.length)%oralData.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=oralData.length-1;else return;event.preventDefault();selectOral(next,true)});oralTabs.append(button)});
@@ -304,7 +261,7 @@ const facilityCarousel=document.querySelector('.facility-carousel');
 const facilityStage=facilityCarousel.querySelector('.facility-stage');
 const facilityStatus=facilityCarousel.querySelector('.facility-status');
 const facilityMotion=matchMedia('(prefers-reduced-motion: reduce)');
-const facilityPhotos=Array.from({length:11},(_,i)=>{const button=document.createElement('button');button.type='button';button.className='facility-photo';button.setAttribute('aria-label',`시설 사진 ${i+1} 보기`);const image=document.createElement('img');image.src=`이미지/section15_${i+1}.jpg`;image.alt='';image.draggable=false;button.append(image);facilityStage.append(button);return button});
+const facilityPhotos=Array.from({length:11},(_,i)=>{const button=document.createElement('button');button.type='button';button.className='facility-photo';button.setAttribute('aria-label',`시설 사진 ${i+1} 보기`);const image=document.createElement('img');image.src=`images/section15_${i+1}.jpg`;image.alt='';image.draggable=false;button.append(image);facilityStage.append(button);return button});
 let facilityPosition=0,facilityPointer=null,facilityFrame=0,facilityDragged=false,facilityActive=0;
 const facilityWrap=n=>((n%facilityPhotos.length)+facilityPhotos.length)%facilityPhotos.length;
 function renderFacility(pos){
@@ -324,3 +281,73 @@ facilityCarousel.addEventListener('pointerup',event=>{if(!facilityPointer||event
 facilityCarousel.addEventListener('pointercancel',()=>{if(!facilityPointer)return;facilityPointer=null;facilityCarousel.classList.remove('is-dragging');moveFacility(Math.round(facilityPosition))});
 facilityCarousel.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();moveFacility(Math.round(facilityPosition)+(event.key==='ArrowRight'?1:-1))}});
 window.addEventListener('resize',()=>renderFacility(facilityPosition));renderFacility(0);finishFacility(0);
+
+
+// 개별 진료 사진이 중앙의 시점을 기준으로 움직이는 파노라마
+(()=>{
+  const stage=document.querySelector('.panorama-stage');
+  if(!stage)return;
+  const originals=[...stage.querySelectorAll('.panorama-card')];
+  const next=stage.querySelector('.panorama-next'),prev=stage.querySelector('.panorama-prev');
+  for(let copy=0;copy<2;copy++)originals.forEach(card=>stage.insertBefore(card.cloneNode(true),prev));
+  const cards=[...stage.querySelectorAll('.panorama-card')],ns='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(ns,'svg');svg.setAttribute('width','0');svg.setAttribute('height','0');svg.setAttribute('aria-hidden','true');svg.style.position='absolute';
+  const defs=document.createElementNS(ns,'defs');svg.append(defs);stage.append(svg);
+  const masks=cards.map((card,i)=>{const clip=document.createElementNS(ns,'clipPath'),path=document.createElementNS(ns,'path');clip.id=`panorama-mask-${i}`;clip.setAttribute('clipPathUnits','objectBoundingBox');clip.append(path);defs.append(clip);card.style.clipPath=`url(#${clip.id})`;return path});
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let position=originals.length,frame=0,pointer=null,dragged=false,wheelTimer=0;
+  const cardWidth=()=>parseFloat(getComputedStyle(cards[0]).width);
+  const step=()=>cardWidth()*(402.86/386.282);
+  const slotFor=(index,pos)=>{const n=cards.length;return ((index-pos+n*10+n/2)%n)-n/2};
+  function render(pos){
+    const w=cardWidth(),scale=w/386.282,s=step(),mid=stage.clientHeight/2-11.5*scale;
+    const extend=x=>Math.max(0,Math.abs(x)-w/2);
+    const upper=x=>{const d=extend(x),outer=Math.max(0,d-403*scale);return -247.436*scale-.076*d-(x<0?.07:.02)*outer},lower=x=>{const d=extend(x),outer=Math.max(0,d-403*scale);return 247.436*scale+.096*d+(x>0?.07:0)*outer};
+    cards.forEach((card,i)=>{
+      const slot=slotFor(i,pos),distance=Math.abs(slot),center=slot*s,x0=center-w/2,x1=center+w/2;
+      const t0=upper(x0),t1=upper(x1),b0=lower(x0),b1=lower(x1),top=Math.min(t0,t1),bottom=Math.max(b0,b1),height=bottom-top;
+      const a=(t0-top)/height,b=(t1-top)/height,c=(b0-top)/height,d=(b1-top)/height;
+      const rx=Math.min(.08,20*scale/w),ry=Math.min(.12,20*scale/height);
+      const interp=(a,b,t)=>a+(b-a)*t;
+      masks[i].setAttribute('d',`M 0 ${a+ry} Q 0 ${a} ${rx} ${interp(a,b,rx)} L ${1-rx} ${interp(a,b,1-rx)} Q 1 ${b} 1 ${b+ry} L 1 ${d-ry} Q 1 ${d} ${1-rx} ${interp(c,d,1-rx)} L ${rx} ${interp(c,d,rx)} Q 0 ${c} 0 ${c-ry} Z`);
+      card.style.left=`calc(50% + ${center}px)`;card.style.top=`${mid+top}px`;card.style.height=`${height}px`;
+      const visible=distance<Math.max(4.5,(stage.clientWidth/2+w)/s);card.style.setProperty('--panorama-visible',visible?'1':'0');card.style.setProperty('--panorama-layer',String(20-Math.min(19,Math.round(distance*3))));
+      card.tabIndex=visible?0:-1;card.style.pointerEvents=visible?'auto':'none';card.setAttribute('aria-hidden',String(!visible));
+    });
+  }
+  function finish(){const current=((Math.round(position)%cards.length)+cards.length)%cards.length;cards.forEach((card,i)=>{card.classList.toggle('is-active',i===current);if(i===current)card.setAttribute('aria-current','true');else card.removeAttribute('aria-current')})}
+  function hide(){cards.forEach(card=>card.classList.remove('is-active'))}
+  function animate(target){cancelAnimationFrame(frame);hide();const from=position,difference=target-from;if(reduced.matches||Math.abs(difference)<.001){position=target;render(position);finish();return}const duration=Math.min(900,500+Math.abs(difference)*100);let started=null;function tick(time){if(started===null)started=time;const progress=Math.min(1,(time-started)/duration);position=from+difference*(1-Math.pow(1-progress,3));render(position);if(progress<1)frame=requestAnimationFrame(tick);else{position=target;render(position);finish()}}frame=requestAnimationFrame(tick)}
+  function move(direction){clearTimeout(wheelTimer);animate(Math.round(position)+direction)}
+  prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
+  cards.forEach((card,i)=>card.addEventListener('click',()=>{if(dragged){dragged=false;return}const current=Math.round(position);animate(current+Math.round(slotFor(i,current)))}));
+  stage.addEventListener('pointerdown',event=>{if(event.button!==0||event.target.closest('.panorama-prev,.panorama-next'))return;clearTimeout(wheelTimer);cancelAnimationFrame(frame);dragged=false;pointer={id:event.pointerId,x:event.clientX,y:event.clientY,position,moved:false,samples:[{x:event.clientX,time:performance.now()}]};(event.target.closest('.panorama-card')||stage).setPointerCapture(event.pointerId)});
+  stage.addEventListener('pointermove',event=>{if(!pointer||event.pointerId!==pointer.id)return;const dx=event.clientX-pointer.x,dy=event.clientY-pointer.y;if(!pointer.moved&&Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)){pointer.moved=true;hide();stage.classList.add('is-dragging')}if(pointer.moved){position=pointer.position-dx/step();render(position);const now=performance.now();pointer.samples.push({x:event.clientX,time:now});pointer.samples=pointer.samples.filter(sample=>now-sample.time<120)}});
+  function release(event){if(!pointer||event.pointerId!==pointer.id)return;const state=pointer;pointer=null;stage.classList.remove('is-dragging');if(event.type==='pointercancel'){animate(Math.round(position));return}if(state.moved){dragged=true;const now=performance.now(),samples=state.samples.filter(sample=>now-sample.time<120);let velocity=0;if(samples.length>1){const first=samples[0],last=samples[samples.length-1];velocity=(last.x-first.x)/Math.max(1,last.time-first.time)}const drift=reduced.matches?0:Math.max(-2,Math.min(2,-velocity*320/step()));animate(Math.round(position+drift));setTimeout(()=>{dragged=false},350)}else if(Math.abs(position-Math.round(position))>.001)animate(Math.round(position));}
+  stage.addEventListener('pointerup',release);stage.addEventListener('pointercancel',release);
+  stage.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();move(event.key==='ArrowRight'?1:-1)}});
+  stage.addEventListener('wheel',event=>{if(Math.abs(event.deltaX)<=Math.abs(event.deltaY))return;event.preventDefault();cancelAnimationFrame(frame);hide();position+=event.deltaX/step();render(position);clearTimeout(wheelTimer);wheelTimer=setTimeout(()=>animate(Math.round(position)),120)},{passive:false});
+  window.addEventListener('resize',()=>render(position));render(position);finish();
+})();
+// Reveal headings and cards as each section enters the viewport.
+(()=>{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    entry.target.classList.add('is-revealed');
+    observer.unobserve(entry.target);
+  }),{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+  function reveal(selector,className,stagger=0){
+    document.querySelectorAll(selector).forEach((element,index)=>{
+      element.classList.add(className);
+      if(stagger)element.style.setProperty('--reveal-delay',`${index*stagger}ms`);
+      observer.observe(element);
+    });
+  }
+  reveal('.heading h2,.heading p,.care-panorama-heading h2,.care-panorama-heading p,.diagnostic-intro h2,.vaccination-intro h2,.vaccination-intro p,.story .eyebrow,.story h2,.story-copy p,.director blockquote p','reveal-lift');
+  reveal('#care-environment .care-grid article','reveal-card',120);
+  reveal('#checkup .steps article','reveal-card',120);
+  reveal('#dental .dental-list article','reveal-right',120);
+  const team=document.querySelector('#team');
+  if(team){const teamObserver=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){team.querySelector('.team-grid:not([hidden])')?.classList.add('team-enter');teamObserver.disconnect()}},{threshold:.1});teamObserver.observe(team)}
+})();

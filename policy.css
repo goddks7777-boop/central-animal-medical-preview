@@ -1,0 +1,90 @@
+@font-face{font-family:GmarketSans;src:url('fonts/GmarketSansMedium.woff2') format('woff2');font-weight:500;font-display:swap}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Pretendard,'Noto Sans KR','Malgun Gothic',sans-serif;color:#212121;line-height:1.7;word-break:keep-all}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid #00a7aa;outline-offset:4px}.site-header{background:#02686a;color:#fff}.header-inner{height:100px;max-width:1710px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}.brand img{width:301px;max-width:100%;display:block}.home{font-size:15px;font-weight:600}.home span{font-size:17px;margin-left:8px}.intro{background:#f4f8f7}.intro-inner{max-width:1180px;margin:auto;padding:95px 20px 80px}.eyebrow{font-family:GmarketSans,sans-serif;color:#2b8688;font-size:13px;font-weight:500;letter-spacing:.08em}.intro h1{margin:14px 0 12px;font-size:44px;line-height:1.25;letter-spacing:-.035em}.intro p{color:#666;font-size:19px;margin:0}.layout{max-width:1180px;margin:0 auto;padding:70px 20px 130px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:65px;align-items:start}.policy-nav{display:flex;flex-direction:column;border-top:2px solid #02686a;position:sticky;top:24px}.policy-nav a{padding:17px 12px;color:#666;font-size:15px;border-bottom:1px solid #e4eae9}.policy-nav a[aria-current=page]{color:#02686a;font-weight:700;background:#eef7f6}.content{min-width:0;color:#444;font-size:16px}.notice,.summary{padding:24px 28px;border-radius:14px}.notice{border:1px solid #e7c994;background:#fff9ee;color:#705428;margin-bottom:16px}.notice strong{display:block;color:#805917;font-size:16px}.notice p,.summary p{margin:6px 0 0}.summary{background:#edf6f5;color:#486361;margin-bottom:55px}.summary strong{font-size:20px;color:#02686a}.content section{margin-top:46px}.content h2{margin:0 0 17px;color:#202c2c;font-size:22px;line-height:1.4}.content p{margin:0 0 13px}.content p:last-child{margin-bottom:0}.content a:not(.phone-button){color:#02686a;text-decoration:underline;text-underline-offset:3px}.content ul{margin:0;padding-left:1.3em}.content li+li{margin-top:8px}.pending,.pending-box{color:#875e20}.pending-box{background:#fff9ef;border-left:3px solid #ddbd82;padding:13px 16px;margin:16px 0;border-radius:0 8px 8px 0;font-size:15px}.contact-list{margin:0;border-top:1px solid #dfe8e6}.contact-list div{display:grid;grid-template-columns:100px 1fr;border-bottom:1px solid #e8eeee;padding:12px 8px}.contact-list dt{font-weight:700;color:#425856}.contact-list dd{margin:0}.fee-meta{display:flex;justify-content:space-between;font-size:14px;color:#657675}.phone-button{display:inline-flex;margin-top:16px;background:#02686a;border-radius:7px;padding:9px 16px;color:white;font-weight:700;font-size:14px}.fee-section h2{color:#02686a}.table-wrap{overflow-x:auto;border-top:2px solid #02686a}table{width:100%;border-collapse:collapse;font-size:14px;text-align:left}th,td{padding:14px 12px;border-bottom:1px solid #e3e9e8;vertical-align:top}thead th{background:#f3f8f7;color:#315452;white-space:nowrap}tbody th{font-weight:600;color:#2a3937}td:nth-child(2),td:nth-child(3){white-space:nowrap;font-variant-numeric:tabular-nums}td:last-child{color:#777}.bottom-links{margin-top:80px;padding-top:23px;border-top:1px solid #dde6e5;display:flex;justify-content:space-between;gap:16px;font-size:14px}.site-footer{background:#02686a;color:white}.site-footer>div{max-width:1180px;margin:auto;padding:48px 20px 42px}.site-footer img{width:230px;display:block}.site-footer nav{display:flex;gap:24px;flex-wrap:wrap;margin:28px 0 20px;font-weight:700;font-size:15px}.site-footer p{font-size:13px;line-height:1.8;color:#e1efee}.site-footer small{font-size:12px;color:#b7d6d4}@media(max-width:760px){.header-inner{height:76px;padding:0 18px}.brand img{width:210px}.home{font-size:12px}.intro-inner{padding:65px 18px 52px}.intro h1{font-size:31px}.intro p{font-size:16px}.layout{display:block;padding:35px 18px 85px}.policy-nav{position:static;flex-direction:row;overflow-x:auto;margin-bottom:40px}.policy-nav a{white-space:nowrap;flex:1;text-align:center;font-size:13px;padding:14px 10px}.content{font-size:15px}.content h2{font-size:19px}.content section{margin-top:38px}.notice,.summary{padding:20px}.summary{margin-bottom:40px}.fee-meta{display:block}.fee-meta span{display:block}.table-wrap{overflow-x:auto}table{min-width:600px}.bottom-links{flex-direction:column}.site-footer>div{padding:40px 18px}.site-footer nav{gap:14px;font-size:13px}}
+/* 병원 안내 페이지 */
+.policy-page{background:#f5f8f7;color:#1d3030}
+.policy-page .site-header{background:#02686a;border-bottom:1px solid rgba(255,255,255,.12)}
+.policy-page .header-inner{max-width:1490px}
+.policy-page .home{display:inline-flex;align-items:center;gap:12px;font-weight:500;color:rgba(255,255,255,.9)}
+.policy-page .home span{display:grid;place-items:center;width:30px;height:30px;border:1px solid rgba(255,255,255,.4);border-radius:50%;margin:0;font-size:14px;transition:background .2s}
+.policy-page .home:hover span{background:rgba(255,255,255,.16)}
+.policy-page .intro{position:relative;overflow:hidden;background:#02686a;color:#fff}
+.policy-page .intro::after{content:"";position:absolute;right:max(5%,calc((100% - 1450px)/2));top:-155px;width:480px;height:480px;background:url('images/symbol.png') center/contain no-repeat;pointer-events:none}
+.policy-page .intro-inner{position:relative;z-index:1;max-width:1260px;padding:73px 24px 102px}
+.policy-page .eyebrow{display:flex;align-items:center;gap:12px;color:#9fd6d4;font-size:12px;letter-spacing:.12em}
+.policy-page .eyebrow::before{content:"";width:27px;height:2px;border-radius:4px;background:#72c7c4}
+.policy-page .intro h1{font-size:44px;font-weight:700;letter-spacing:-.045em;margin:24px 0 14px;color:#fff}
+.policy-page .intro p{font-size:17px;line-height:1.6;color:rgba(255,255,255,.78)}
+.policy-page .layout{position:relative;z-index:2;max-width:1260px;padding:0 24px 110px;margin:-33px auto 0;grid-template-columns:218px minmax(0,1fr);gap:24px}
+.policy-page .policy-nav{top:24px;border:1px solid #e0ecea;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 32px rgba(19,66,62,.055)}
+.policy-page .policy-nav::before{content:"HOSPITAL GUIDE";display:block;padding:22px 20px 12px;font:500 10px/1.4 GmarketSans,sans-serif;letter-spacing:.12em;color:#86a3a0}
+.policy-page .policy-nav a{position:relative;display:block;padding:17px 20px;color:#526b68;font-size:15px;font-weight:600;border:0;transition:background .2s,color .2s}
+.policy-page .policy-nav a:last-child{padding-bottom:22px}
+.policy-page .policy-nav a:hover{color:#02686a;background:#f5fbfa}
+.policy-page .policy-nav a[aria-current=page]{background:#edf7f5;color:#006b6b}
+.policy-page .policy-nav a[aria-current=page]::before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:3px;border-radius:0 2px 2px 0;background:#00a6a5}
+.policy-page .content{padding:50px 56px 48px;background:#fff;border:1px solid #e2edeb;border-radius:20px;box-shadow:0 12px 38px rgba(27,79,74,.06);font-size:16px;line-height:1.85;color:#526260}
+.policy-page .summary{position:relative;overflow:hidden;border:1px solid #deefed;border-radius:14px;background:#f0f8f7;padding:25px 28px;margin:0 0 40px;color:#587371}
+.policy-page .summary::before{content:"";position:absolute;top:23px;bottom:23px;left:0;width:3px;border-radius:0 2px 2px 0;background:#37a9a6}
+.policy-page .summary strong{font-size:20px;color:#006b6b;letter-spacing:-.025em}
+.policy-page .summary p{margin:6px 0 0;line-height:1.7}
+.policy-page .content section{margin:0;padding:32px 0;border-top:1px solid #e8efee}
+.policy-page .content section:first-of-type{border-top:0;padding-top:0}
+.policy-page .content h2{margin:0 0 15px;font-size:21px;color:#163c3a;line-height:1.4;letter-spacing:-.03em}
+.policy-page .content section p{margin:0 0 12px}
+.policy-page .content section p:last-child{margin-bottom:0}
+.policy-page .content a:not(.phone-button){color:#007875}
+.policy-page .content li+li{margin-top:10px}
+.policy-page .contact-list{border-top:1px solid #dce9e6}
+.policy-page .contact-list div{padding:14px 12px}
+.policy-page .contact-list dt{color:#405f5b}
+.policy-page .phone-button{border-radius:8px;padding:10px 16px;background:#02686a}
+.policy-page .phone-button:hover{background:#005254}
+.policy-page .fee-note{margin:0 0 12px;color:#667c79;font-size:14px}
+.policy-page .fee-meta{margin:0 0 24px;color:#748985;font-size:13px}
+.policy-page .fee-section h2{display:flex;align-items:center;gap:10px;color:#006b6b}
+.policy-page .fee-section h2::before{content:"";display:block;width:5px;height:20px;border-radius:5px;background:#42b4ad}
+.policy-page .table-wrap{border-top:2px solid #b4d9d4;border-radius:2px}
+.policy-page table{font-size:14px;line-height:1.55}
+.policy-page thead th{background:#f2f8f7;color:#51706c;padding:14px 12px}
+.policy-page tbody th,.policy-page tbody td{padding:15px 12px;border-color:#e8efee}
+.policy-page tbody th{color:#263f3c}
+.policy-page tbody tr:hover{background:#f9fcfb}
+.policy-page .bottom-links{margin-top:30px;padding-top:24px;border-top:1px solid #e3edeb;font-size:14px;font-weight:600}
+.policy-page .site-footer>div{max-width:1260px;padding-left:24px;padding-right:24px}
+@media(max-width:760px){
+ .policy-page .header-inner{height:76px;padding:0 18px}
+ .policy-page .brand img{width:190px}
+ .policy-page .home{font-size:12px;gap:7px}
+ .policy-page .home span{width:25px;height:25px;font-size:12px}
+ .policy-page .intro::after{right:-105px;top:-55px;width:280px;height:280px}
+ .policy-page .intro-inner{padding:57px 20px 70px}
+ .policy-page .intro h1{font-size:31px;margin:19px 0 10px}
+ .policy-page .intro p{font-size:15px;max-width:270px}
+ .policy-page .layout{display:block;margin:-23px auto 0;padding:0 16px 70px}
+ .policy-page .policy-nav{position:relative;top:auto;display:flex;flex-direction:row;overflow:auto;border-radius:12px;margin:0 0 14px}
+ .policy-page .policy-nav::before{display:none}
+ .policy-page .policy-nav a,.policy-page .policy-nav a:last-child{padding:15px 12px;flex:1;font-size:13px;white-space:nowrap;text-align:center}
+ .policy-page .policy-nav a[aria-current=page]::before{top:auto;left:14px;right:14px;bottom:0;width:auto;height:3px;border-radius:2px 2px 0 0}
+ .policy-page .content{padding:25px 20px 30px;border-radius:16px;font-size:15px}
+ .policy-page .summary{padding:21px 20px;margin-bottom:28px}
+ .policy-page .summary strong{font-size:18px}
+ .policy-page .content section{padding:26px 0}
+ .policy-page .content h2{font-size:18px}
+ .policy-page .fee-meta{display:flex;gap:10px;justify-content:space-between}
+ .policy-page .table-wrap{overflow:visible}
+ .policy-page table{min-width:0;display:block}
+ .policy-page thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .policy-page tbody{display:block}
+ .policy-page tbody tr{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:16px 0;border-bottom:1px solid #e8efee}
+ .policy-page tbody th,.policy-page tbody td{border:0;padding:0;white-space:normal}
+ .policy-page tbody th{grid-column:1 / -1;font-size:15px}
+ .policy-page tbody td:nth-child(2)::before,.policy-page tbody td:nth-child(3)::before{display:block;margin-bottom:2px;font-size:12px;color:#819491}
+ .policy-page tbody td:nth-child(2)::before{content:'최저 (원)'}
+ .policy-page tbody td:nth-child(3)::before{content:'최고 (원)'}
+ .policy-page tbody td:last-child{grid-column:1 / -1;padding-top:3px;color:#7b8e8a;font-size:13px}
+ .policy-page .bottom-links{gap:14px;margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.policy-page .policy-nav a,.policy-page .home span{transition:none}}
+/* 안내 페이지 상단 심볼 전체가 보이도록 배치 */
+.policy-page .intro::after{top:50%;right:max(7%,calc((100% - 1260px)/2 + 40px));width:min(240px,27vw);height:auto;aspect-ratio:430/432;transform:translateY(-50%)}
+@media(max-width:760px){.policy-page .intro::after{top:50%;right:18px;width:clamp(108px,30vw,150px);height:auto;transform:translateY(-50%)}}
