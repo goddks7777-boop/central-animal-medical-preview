@@ -119,6 +119,11 @@ header.is-hidden{transform:translateY(-100%)}
 @media(max-width:600px){.story-sequence{--story-mask:min(630px,85vh);--sequence-stats-height:340px}}
 @media(prefers-reduced-motion:reduce){.story-sequence .hero,.story-sequence .stats{position:relative;top:auto;bottom:auto}}
 
+/* 고정 헤더와 비주얼이 맞닿는 부분의 틈을 방지합니다. */
+.story-sequence{margin-top:-4px;--sequence-hero-height:calc(100vh - 96px)}
+.story-sequence .hero{height:calc(100vh - 96px);height:calc(100dvh - 96px)}
+@media(max-width:900px){.story-sequence{--sequence-hero-height:calc(100vh - 71px)}.story-sequence .hero{height:calc(100vh - 71px);height:calc(100dvh - 71px)}}
+
 /* 의료진 소개 탭과 카드 */
 #team{min-height:1446px;padding-top:200px;padding-bottom:160px}
 #team .heading{margin-bottom:120px}
