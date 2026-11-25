@@ -781,6 +781,7 @@ body>header{z-index:100}
 .location-address h2,.location-directions h3{display:flex;align-items:center;gap:8px}
 .location-address h2 img,.location-directions h3 img,.location-phone img{width:20px;height:20px;object-fit:contain;flex:none}
 #location .location-phone{display:inline-flex;align-items:center;gap:8px}
+#location .location-phone-mobile{display:none}
 .mobile-card-controls{display:none}
 @media(max-width:900px){
   .director .portrait{height:490px}
@@ -790,6 +791,9 @@ body>header{z-index:100}
   .director blockquote footer{position:absolute;top:auto;bottom:calc(100% + 20px);right:16px}
   .panorama-prev,.panorama-next{display:none}
   #location .location-address h2,#location .location-directions h3{justify-content:center}
+  #location .location-address .location-phone,#location .location-logo,#location .location-fax{display:none}
+  #location .location-phone-mobile{display:inline-flex;margin-top:0}
+  #location .location-company p{word-break:keep-all;overflow-wrap:normal}
   #team .team-grid:not([hidden]),#equipment .equipment-grid{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
   #team .team-grid::-webkit-scrollbar,#equipment .equipment-grid::-webkit-scrollbar{display:none}
   #team .team-grid .team-card,#equipment .equipment-grid .equipment-card{flex:0 0 100%;min-width:0;scroll-snap-align:start}
