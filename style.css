@@ -774,7 +774,8 @@ body>header{z-index:100}
 /* 진료 안내 및 모바일 카드 슬라이드 */
 .hero-controls .hero-pause{grid-column:3;grid-row:1}
 .hero-controls .hero-play{grid-column:4;grid-row:1}
-.panorama-copy{transform:skewY(var(--panorama-copy-tilt,0deg));transform-origin:center bottom}
+.panorama-copy{left:8%;right:8%;bottom:calc(12% + var(--panorama-copy-edge-offset,0px));align-items:center;text-align:center;transform:skewY(var(--panorama-copy-tilt,0deg));transform-origin:center bottom}
+.panorama-tags{justify-content:center}
 .vaccination-intro p{font-weight:100}
 #contact .contact-reservation{background:#02686a}
 .location-address h2,.location-directions h3{display:flex;align-items:center;gap:8px}

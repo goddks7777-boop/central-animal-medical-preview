@@ -332,6 +332,7 @@ window.addEventListener('resize',()=>renderFacility(facilityPosition));renderFac
       const t0=upper(x0),t1=upper(x1),b0=lower(x0),b1=lower(x1),top=Math.min(t0,t1),bottom=Math.max(b0,b1),height=bottom-top;
       const a=(t0-top)/height,b=(t1-top)/height,c=(b0-top)/height,d=(b1-top)/height;
       card.style.setProperty('--panorama-copy-tilt',`${Math.atan2(b1-b0,w)*180/Math.PI}deg`);
+      card.style.setProperty('--panorama-copy-edge-offset',`${Math.abs(b1-b0)/2}px`);
       const rx=Math.min(.08,20*scale/w),ry=Math.min(.12,20*scale/height);
       const interp=(a,b,t)=>a+(b-a)*t;
       masks[i].setAttribute('d',`M 0 ${a+ry} Q 0 ${a} ${rx} ${interp(a,b,rx)} L ${1-rx} ${interp(a,b,1-rx)} Q 1 ${b} 1 ${b+ry} L 1 ${d-ry} Q 1 ${d} ${1-rx} ${interp(c,d,1-rx)} L ${rx} ${interp(c,d,rx)} Q 0 ${c} 0 ${c-ry} Z`);
