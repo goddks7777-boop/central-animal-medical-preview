@@ -778,6 +778,14 @@ body>header{z-index:100}
 .panorama-tags{justify-content:center}
 .vaccination-intro p{font-weight:100}
 #contact .contact-reservation{background:#02686a}
+#contact .contact-action{transition:transform .22s ease,background-color .22s ease,box-shadow .22s ease}
+@media(hover:hover){
+  #contact .contact-action:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgba(0,70,72,.22)}
+  #contact .contact-phone:hover{background-color:#378f91}
+  #contact .contact-reservation:hover{background-color:#005456}
+}
+#contact .contact-action:active{transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){#contact .contact-action{transition:none}#contact .contact-action:hover,#contact .contact-action:active{transform:none}}
 .location-address h2,.location-directions h3{display:flex;align-items:center;gap:8px}
 .location-address h2 img,.location-directions h3 img,.location-phone img{width:20px;height:20px;object-fit:contain;flex:none}
 #location .location-phone{display:inline-flex;align-items:center;gap:8px}
