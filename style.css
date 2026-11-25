@@ -860,3 +860,46 @@ body>header{z-index:100}
   #equipment .mobile-card-controls .mobile-card-next{right:-18px}
   #equipment .mobile-card-controls button:disabled{opacity:.35}
 }
+
+/* PC 푸터: 지도, 위치 안내, 전화와 하단 정보를 시안에 맞춰 배치합니다. */
+.location-contact,.mobile-footer-break{display:none}
+#location .location-fax{display:none}
+@media(min-width:901px){
+  #location{min-height:761px;padding:110px 0 80px}
+  #location .wrap{position:relative}
+  #location .location-grid{display:grid;grid-template-columns:minmax(0,734fr) minmax(0,285fr) minmax(0,253fr);column-gap:clamp(24px,4.375vw,84px);align-items:start}
+  #location .location-map{grid-column:1;grid-row:1;height:410px}
+  #location .location-address{grid-column:2;grid-row:1;margin-top:26px}
+  #location .location-directions{grid-column:2;grid-row:1;margin-top:140px;gap:20px}
+  #location .location-contact{display:block;grid-column:3;grid-row:1;margin-top:26px}
+  #location .location-address h2,#location .location-directions h3,#location .location-contact h2{display:flex;align-items:center;gap:10px;margin:0 0 6px;font-size:20px;line-height:20px}
+  #location .location-address h2 img,#location .location-contact h2 img{width:24px;height:24px;object-fit:contain}
+  #location .location-directions h3 img{width:24px;height:24px;object-fit:contain}
+  #location .location-address p,#location .location-directions p{margin-left:34px;font-size:16px;line-height:22px}
+  #location .location-directions p{font-weight:400}
+  #location .location-address p br{display:none}
+  #location .location-contact .location-phone{display:inline-block;margin:0 0 0 34px;font-size:clamp(19px,1.5625vw,30px);line-height:30px;font-weight:700}
+  #location .location-social{position:absolute;top:140px;right:11px;justify-content:flex-end;gap:20px}
+  #location .location-social>img:first-child{display:none}
+  #location .location-bottom{display:grid;grid-template-columns:221px minmax(0,435px) minmax(0,1fr);gap:clamp(24px,4.0625vw,78px);align-items:start;margin-top:43px}
+  #location .location-logo{width:221px}
+  #location .location-policies{justify-content:space-between;gap:10px;font-size:20px;line-height:20px;font-weight:600}
+  #location .location-policies a[href="faq.html"]{display:none}
+  #location .location-company p{margin-top:20px;font-size:14px;line-height:22px;font-weight:400}
+  #location .location-meta{grid-column:auto;text-align:right}
+  #location .location-meta p{margin-top:40px;font-size:14px;line-height:17px;font-weight:400}
+}
+@media(max-width:900px){.mobile-footer-break{display:initial}}
+@media(min-width:1351px){
+  #location .location-address p{width:max-content;max-width:calc(100% + 40px)}
+  #location .location-directions p{width:calc(100% + 35px)}
+}
+@media(min-width:901px) and (max-width:1350px){
+  #location .location-grid{column-gap:24px}
+  #location .location-address p,#location .location-directions p{font-size:14px;line-height:21px}
+  #location .location-policies{font-size:16px}
+  #location .location-bottom{grid-template-columns:180px minmax(0,1fr) minmax(0,1fr);gap:24px}
+  #location .location-logo{width:180px}
+}
+
+@media(min-width:901px){#location .location-company p{word-break:keep-all;overflow-wrap:normal}}
