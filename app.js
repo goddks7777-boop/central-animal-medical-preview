@@ -53,10 +53,10 @@ const heroPause=hero.querySelector('.hero-pause'),heroPlay=hero.querySelector('.
 const heroReduce=matchMedia('(prefers-reduced-motion: reduce)');
 let heroIndex=0,heroStart=null,heroPlaying=!heroReduce.matches,heroVisible=true,heroElapsed=0,heroLast=performance.now();
 function updateHeroProgress(){heroProgress.style.width=`${Math.min(100,heroElapsed/50)}%`}
-function updateHeroControls(){heroCount.textContent=`${heroIndex+1}/${heroSlides.length}`;heroPause.hidden=heroPlaying;heroPlay.hidden=!heroPlaying;updateHeroProgress()}
+function updateHeroControls(){heroCount.textContent=`${heroIndex+1}/${heroSlides.length}`;heroPause.setAttribute('aria-pressed',String(!heroPlaying));heroPlay.setAttribute('aria-pressed',String(heroPlaying));updateHeroProgress()}
 function setHeroPlaying(playing){heroPlaying=playing;heroLast=performance.now();updateHeroControls()}
-heroPause.addEventListener('click',()=>{setHeroPlaying(true);heroPlay.focus({preventScroll:true})});
-heroPlay.addEventListener('click',()=>{setHeroPlaying(false);heroPause.focus({preventScroll:true})});
+heroPause.addEventListener('click',()=>setHeroPlaying(false));
+heroPlay.addEventListener('click',()=>setHeroPlaying(true));
 if('IntersectionObserver' in window)new IntersectionObserver(entries=>{heroVisible=entries.some(entry=>entry.isIntersecting);heroLast=performance.now()},{threshold:.1}).observe(hero);
 document.addEventListener('visibilitychange',()=>{heroLast=performance.now()});
 function showHero(index){heroElapsed=0;heroIndex=(index+heroSlides.length)%heroSlides.length;heroSlides.forEach((slide,i)=>{const active=i===heroIndex;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active))});updateHeroControls()}
@@ -138,6 +138,24 @@ const teamTabs=[...document.querySelectorAll('#team [role="tab"]')];
 function selectTeamTab(selected,focus=false){teamTabs.forEach(tab=>{const active=tab===selected;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;const panel=document.getElementById(tab.getAttribute('aria-controls'));panel.hidden=!active;if(active){panel.classList.remove('team-enter');void panel.offsetWidth;panel.classList.add('team-enter')}});if(focus)selected.focus()}
 teamTabs.forEach((tab,index)=>{tab.addEventListener('click',()=>selectTeamTab(tab));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%teamTabs.length;else if(event.key==='ArrowLeft')next=(index-1+teamTabs.length)%teamTabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=teamTabs.length-1;else return;event.preventDefault();selectTeamTab(teamTabs[next],true)})});
 
+// Mobile card navigation for the medical team and equipment categories.
+function setupMobileCardSlider(section,trackFor,tabs,label){
+  const controls=document.createElement('div');controls.className='mobile-card-controls';
+  controls.innerHTML=`<div class="mobile-card-progress" role="progressbar" aria-label="${label} 위치" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><span class="mobile-card-count" aria-live="polite"></span><button class="mobile-card-prev" type="button" aria-label="이전 ${label}"></button><button class="mobile-card-next" type="button" aria-label="다음 ${label}"></button>`;
+  section.append(controls);
+  const bar=controls.querySelector('.mobile-card-progress'),fill=bar.firstElementChild,count=controls.querySelector('.mobile-card-count'),prev=controls.querySelector('.mobile-card-prev'),next=controls.querySelector('.mobile-card-next');
+  function state(){const track=trackFor(),items=[...track.children],step=items.length>1?items[1].offsetLeft-items[0].offsetLeft:track.clientWidth;const index=Math.max(0,Math.min(items.length-1,Math.round(track.scrollLeft/(step||1))));return {track,items,step,index}}
+  function update(){const {items,index}=state(),total=items.length;const value=total?Math.round((index+1)/total*100):0;fill.style.width=`${value}%`;bar.setAttribute('aria-valuenow',String(value));count.textContent=total?`${index+1} / ${total}`:'0 / 0';prev.disabled=index===0;next.disabled=index>=total-1}
+  function move(direction){const {track,items,step,index}=state(),target=Math.max(0,Math.min(items.length-1,index+direction));track.scrollTo({left:target*step,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+  prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
+  section.querySelectorAll('.team-grid,.equipment-grid').forEach(track=>track.addEventListener('scroll',update,{passive:true}));
+  const reset=()=>requestAnimationFrame(()=>{trackFor().scrollLeft=0;update()});
+  tabs.forEach(tab=>{tab.addEventListener('click',reset);tab.addEventListener('keydown',event=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(event.key))reset()})});
+  window.addEventListener('resize',update);update();
+}
+setupMobileCardSlider(document.querySelector('#team'),()=>document.querySelector('#team .team-grid:not([hidden])'),teamTabs,'의료진');
+setupMobileCardSlider(document.querySelector('#equipment'),()=>equipmentGrid,[...equipmentTabs.querySelectorAll('button')],'장비');
+
 // Internal medicine tabs and their supplied descriptions.
 const internalData=[
 {tab:'심장 내과',title:'심장내과',headline:'기침이나 쉽게 지치는 모습이 반복된다면',description:'운동 후 피로, 기침, 호흡 변화, 실신 등 심장과 혈액순환에 관련된 증상을 살펴봅니다.',diseases:'판막 질환 · 심근 질환 · 부정맥 · 심부전'},
@@ -155,7 +173,7 @@ function selectInternal(index,focus=false){
   internalTabs.querySelectorAll('button').forEach((button,i)=>{const selected=i===index;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});
   internalPanel.setAttribute('aria-labelledby',`internal-tab-${index}`);
   internalPanel.querySelector('h3').textContent=item.title;internalPanel.querySelector('.internal-intro strong').textContent=item.headline;internalPanel.querySelector('.internal-intro p').textContent=item.description;internalPanel.querySelector('.internal-diseases p').textContent=item.diseases;
-  const version=++internalImageVersion,source=`images/section6_${index+1}.jpg`,probe=new Image();
+  const version=++internalImageVersion,source=`images/section6_${index+1}.jpg${index===0?'?v=revision-2':''}`,probe=new Image();
   internalImage.hidden=true;internalPlaceholder.hidden=false;
   probe.onload=()=>{if(version!==internalImageVersion)return;internalImage.src=source;internalImage.alt=`${item.title} 진료 이미지`;internalImage.hidden=false;internalPlaceholder.hidden=true};
   probe.onerror=()=>{if(version!==internalImageVersion)return;internalImage.hidden=true;internalPlaceholder.hidden=false};probe.src=source;
@@ -214,7 +232,7 @@ function selectSurgery(index,focus=false){
   surgeryTabs.querySelectorAll('button').forEach((button,i)=>{const selected=i===index;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});
   surgeryPanel.setAttribute('aria-labelledby',`surgery-tab-${index}`);
   surgeryPanel.querySelector('h3').textContent=item.title;surgeryPanel.querySelector('.surgery-intro strong').textContent=item.headline;surgeryPanel.querySelector('.surgery-intro p').textContent=item.description;surgeryPanel.querySelector('.surgery-diseases p').textContent=item.diseases;
-  const version=++surgeryImageVersion,source=`images/section8_${index+1}.jpg`,probe=new Image();
+  const version=++surgeryImageVersion,source=`images/section8_${index+1}.jpg${index===0?'?v=revision-2':''}`,probe=new Image();
   surgeryImage.hidden=true;surgeryPlaceholder.hidden=false;
   probe.onload=()=>{if(version!==surgeryImageVersion)return;surgeryImage.src=source;surgeryImage.alt=`${item.title} 진료 이미지`;surgeryImage.hidden=false;surgeryPlaceholder.hidden=true};
   probe.onerror=()=>{if(version!==surgeryImageVersion)return;surgeryImage.hidden=true;surgeryPlaceholder.hidden=false};probe.src=source;
@@ -295,7 +313,7 @@ window.addEventListener('resize',()=>renderFacility(facilityPosition));renderFac
   const defs=document.createElementNS(ns,'defs');svg.append(defs);stage.append(svg);
   const masks=cards.map((card,i)=>{const clip=document.createElementNS(ns,'clipPath'),path=document.createElementNS(ns,'path');clip.id=`panorama-mask-${i}`;clip.setAttribute('clipPathUnits','objectBoundingBox');clip.append(path);defs.append(clip);card.style.clipPath=`url(#${clip.id})`;return path});
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let position=originals.length,frame=0,pointer=null,dragged=false,wheelTimer=0;
+  let position=originals.length,frame=0,pointer=null,dragged=false,wheelTimer=0,lastInteraction=performance.now();
   const cardWidth=()=>parseFloat(getComputedStyle(cards[0]).width);
   const step=()=>cardWidth()*(402.86/386.282);
   const slotFor=(index,pos)=>{const n=cards.length;return ((index-pos+n*10+n/2)%n)-n/2};
@@ -307,6 +325,7 @@ window.addEventListener('resize',()=>renderFacility(facilityPosition));renderFac
       const slot=slotFor(i,pos),distance=Math.abs(slot),center=slot*s,x0=center-w/2,x1=center+w/2;
       const t0=upper(x0),t1=upper(x1),b0=lower(x0),b1=lower(x1),top=Math.min(t0,t1),bottom=Math.max(b0,b1),height=bottom-top;
       const a=(t0-top)/height,b=(t1-top)/height,c=(b0-top)/height,d=(b1-top)/height;
+      card.style.setProperty('--panorama-copy-tilt',`${Math.atan2(b1-b0,w)*180/Math.PI}deg`);
       const rx=Math.min(.08,20*scale/w),ry=Math.min(.12,20*scale/height);
       const interp=(a,b,t)=>a+(b-a)*t;
       masks[i].setAttribute('d',`M 0 ${a+ry} Q 0 ${a} ${rx} ${interp(a,b,rx)} L ${1-rx} ${interp(a,b,1-rx)} Q 1 ${b} 1 ${b+ry} L 1 ${d-ry} Q 1 ${d} ${1-rx} ${interp(c,d,1-rx)} L ${rx} ${interp(c,d,rx)} Q 0 ${c} 0 ${c-ry} Z`);
@@ -318,15 +337,16 @@ window.addEventListener('resize',()=>renderFacility(facilityPosition));renderFac
   function finish(){const current=((Math.round(position)%cards.length)+cards.length)%cards.length;cards.forEach((card,i)=>{card.classList.toggle('is-active',i===current);if(i===current)card.setAttribute('aria-current','true');else card.removeAttribute('aria-current')})}
   function hide(){cards.forEach(card=>card.classList.remove('is-active'))}
   function animate(target){cancelAnimationFrame(frame);hide();const from=position,difference=target-from;if(reduced.matches||Math.abs(difference)<.001){position=target;render(position);finish();return}const duration=Math.min(900,500+Math.abs(difference)*100);let started=null;function tick(time){if(started===null)started=time;const progress=Math.min(1,(time-started)/duration);position=from+difference*(1-Math.pow(1-progress,3));render(position);if(progress<1)frame=requestAnimationFrame(tick);else{position=target;render(position);finish()}}frame=requestAnimationFrame(tick)}
-  function move(direction){clearTimeout(wheelTimer);animate(Math.round(position)+direction)}
+  function move(direction){clearTimeout(wheelTimer);lastInteraction=performance.now();animate(Math.round(position)+direction)}
   prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
   cards.forEach((card,i)=>card.addEventListener('click',()=>{if(dragged){dragged=false;return}const current=Math.round(position);animate(current+Math.round(slotFor(i,current)))}));
-  stage.addEventListener('pointerdown',event=>{if(event.button!==0||event.target.closest('.panorama-prev,.panorama-next'))return;clearTimeout(wheelTimer);cancelAnimationFrame(frame);dragged=false;pointer={id:event.pointerId,x:event.clientX,y:event.clientY,position,moved:false,samples:[{x:event.clientX,time:performance.now()}]};(event.target.closest('.panorama-card')||stage).setPointerCapture(event.pointerId)});
+  stage.addEventListener('pointerdown',event=>{if(event.button!==0||event.target.closest('.panorama-prev,.panorama-next'))return;lastInteraction=performance.now();clearTimeout(wheelTimer);cancelAnimationFrame(frame);dragged=false;pointer={id:event.pointerId,x:event.clientX,y:event.clientY,position,moved:false,samples:[{x:event.clientX,time:performance.now()}]};(event.target.closest('.panorama-card')||stage).setPointerCapture(event.pointerId)});
   stage.addEventListener('pointermove',event=>{if(!pointer||event.pointerId!==pointer.id)return;const dx=event.clientX-pointer.x,dy=event.clientY-pointer.y;if(!pointer.moved&&Math.abs(dx)>10&&Math.abs(dx)>Math.abs(dy)){pointer.moved=true;hide();stage.classList.add('is-dragging')}if(pointer.moved){position=pointer.position-dx/step();render(position);const now=performance.now();pointer.samples.push({x:event.clientX,time:now});pointer.samples=pointer.samples.filter(sample=>now-sample.time<120)}});
   function release(event){if(!pointer||event.pointerId!==pointer.id)return;const state=pointer;pointer=null;stage.classList.remove('is-dragging');if(event.type==='pointercancel'){animate(Math.round(position));return}if(state.moved){dragged=true;const now=performance.now(),samples=state.samples.filter(sample=>now-sample.time<120);let velocity=0;if(samples.length>1){const first=samples[0],last=samples[samples.length-1];velocity=(last.x-first.x)/Math.max(1,last.time-first.time)}const drift=reduced.matches?0:Math.max(-2,Math.min(2,-velocity*320/step()));animate(Math.round(position+drift));setTimeout(()=>{dragged=false},350)}else if(Math.abs(position-Math.round(position))>.001)animate(Math.round(position));}
   stage.addEventListener('pointerup',release);stage.addEventListener('pointercancel',release);
   stage.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();move(event.key==='ArrowRight'?1:-1)}});
-  stage.addEventListener('wheel',event=>{if(Math.abs(event.deltaX)<=Math.abs(event.deltaY))return;event.preventDefault();cancelAnimationFrame(frame);hide();position+=event.deltaX/step();render(position);clearTimeout(wheelTimer);wheelTimer=setTimeout(()=>animate(Math.round(position)),120)},{passive:false});
+  stage.addEventListener('wheel',event=>{if(Math.abs(event.deltaX)<=Math.abs(event.deltaY))return;event.preventDefault();lastInteraction=performance.now();cancelAnimationFrame(frame);hide();position+=event.deltaX/step();render(position);clearTimeout(wheelTimer);wheelTimer=setTimeout(()=>animate(Math.round(position)),120)},{passive:false});
+  setInterval(()=>{const rect=stage.getBoundingClientRect();if(reduced.matches||document.hidden||pointer||stage.contains(document.activeElement)||(matchMedia('(hover:hover)').matches&&stage.matches(':hover'))||rect.bottom<=0||rect.top>=innerHeight||performance.now()-lastInteraction<5000)return;move(1)},1000);
   window.addEventListener('resize',()=>render(position));render(position);finish();
 })();
 // Reveal headings and cards as each section enters the viewport.
