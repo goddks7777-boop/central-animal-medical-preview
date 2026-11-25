@@ -783,9 +783,9 @@ body>header{z-index:100}
 .mobile-card-controls{display:none}
 @media(max-width:900px){
   .director .portrait{height:490px}
-  .director blockquote{position:relative;top:auto;left:auto;width:100%;height:auto;padding:48px 18px 42px;background:#02686a}
+  .director blockquote{position:relative;top:auto;left:auto;width:100%;height:auto;padding:48px 18px 42px;background:#f8f8f8}
   .director blockquote::before{left:12px;top:0;font-size:95px}
-  .director blockquote p{position:relative;left:auto;top:auto;width:100%;white-space:normal}
+  .director blockquote p{position:relative;left:auto;top:auto;width:100%;color:#444;text-shadow:none;white-space:normal}
   .director blockquote footer{position:absolute;top:auto;bottom:calc(100% + 20px);right:16px}
   .panorama-prev,.panorama-next{display:none}
   #location .location-address h2,#location .location-directions h3{justify-content:center}
