@@ -822,3 +822,20 @@ body>header{z-index:100}
   #team .mobile-card-controls .mobile-card-next{right:-18px}
   #team .mobile-card-controls button:disabled{opacity:.35}
 }
+
+/* 모바일 장비 카드와 좌우 이동 및 진행 표시 */
+@media(max-width:900px){
+  #equipment .equipment-carousel{position:relative;width:min(345px,calc(100vw - 58px));margin-inline:auto}
+  #equipment .equipment-grid{width:calc(100% + 24px);margin-left:-12px;padding:10px 12px 14px;scroll-padding-left:12px;scroll-padding-right:12px}
+  #equipment .equipment-card{box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  #equipment .equipment-card.is-open img{opacity:.2}
+  #equipment .equipment-card-detail{font-weight:500;line-height:22px}
+  #equipment .mobile-card-controls{width:min(200px,100%);margin:26px auto 0;display:flex;flex-direction:column;gap:10px}
+  #equipment .mobile-card-progress{width:100%;height:4px;flex:none;background:#eee}
+  #equipment .mobile-card-progress span{background:#00a7aa}
+  #equipment .mobile-card-count{min-width:0;font-size:10px;line-height:10px;color:#444}
+  #equipment .mobile-card-controls button{position:absolute;top:calc((100% - 64px)/2);z-index:2;transform:translateY(-50%);opacity:.6;filter:drop-shadow(0 4px 10px rgba(0,0,0,.1))}
+  #equipment .mobile-card-controls .mobile-card-prev{left:-18px}
+  #equipment .mobile-card-controls .mobile-card-next{right:-18px}
+  #equipment .mobile-card-controls button:disabled{opacity:.35}
+}

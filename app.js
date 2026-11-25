@@ -27,17 +27,18 @@ const equipmentData=[
 ['Wuxi Jiajian JM-3A','자극·신경근육 재활 전침 치료기','침에 전기 자극을 전달하는 동물용 전침 장비입니다. 환자의 상태에 따라 통증 관리와 신경·근육 재활치료에 활용합니다.'],
 ['PIOON P1-G10','통증 관리·회복 보조 레이저 치료기','레이저 에너지를 이용해 통증·염증 완화와 연부조직 회복을 돕는 치료에 활용합니다. 환자의 상태와 치료 부위에 맞춰 적용합니다.']
 ];
-const equipmentTabs=document.querySelector('.equipment-tabs'),equipmentGrid=document.querySelector('#equipment-grid');
+const equipmentTabs=document.querySelector('.equipment-tabs'),equipmentGrid=document.querySelector('#equipment-grid'),equipmentMobile=matchMedia('(max-width:900px)');
 let equipmentCurrent=0;
 function showEquipment(index,focus=false){
  equipmentCurrent=index;const start=[0,12,18][index],end=[12,18,25][index];
  equipmentTabs.querySelectorAll('button').forEach((tab,i)=>{const active=i===index;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});
  equipmentGrid.setAttribute('aria-labelledby',`equipment-tab-${index}`);equipmentGrid.replaceChildren();
- equipmentData.slice(start,end).forEach((item,i)=>{const n=start+i+1;const article=document.createElement('article');article.className='equipment-card';const button=document.createElement('button');button.type='button';button.className='equipment-card-button';button.setAttribute('aria-expanded','false');button.setAttribute('aria-label',`${item[0]} 상세 설명`);const image=document.createElement('img');image.src=`images/section14_${n}.jpg`;image.alt='';image.loading='lazy';const title=document.createElement('span');title.className='equipment-card-title';title.textContent=item[0];const subtitle=document.createElement('span');subtitle.className='equipment-card-subtitle';subtitle.textContent=item[1];const details=document.createElement('span');details.className='equipment-card-detail';details.textContent=item[2];button.append(image,title,subtitle,details);button.addEventListener('click',()=>{const open=article.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open))});article.append(button);equipmentGrid.append(article)});
+ equipmentData.slice(start,end).forEach((item,i)=>{const n=start+i+1;const article=document.createElement('article');article.className='equipment-card';const mobileOpen=equipmentMobile.matches;article.classList.toggle('is-open',mobileOpen);const button=document.createElement('button');button.type='button';button.className='equipment-card-button';button.setAttribute('aria-expanded',String(mobileOpen));button.setAttribute('aria-label',`${item[0]} 상세 설명`);const image=document.createElement('img');image.src=`images/section14_${n}.jpg`;image.alt='';image.loading='lazy';const title=document.createElement('span');title.className='equipment-card-title';title.textContent=item[0];const subtitle=document.createElement('span');subtitle.className='equipment-card-subtitle';subtitle.textContent=item[1];const details=document.createElement('span');details.className='equipment-card-detail';details.textContent=item[2];button.append(image,title,subtitle,details);button.addEventListener('click',()=>{const open=article.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open))});article.append(button);equipmentGrid.append(article)});
  if(focus)equipmentTabs.querySelectorAll('button')[index].focus();
 }
 equipmentGroups.forEach((label,i)=>{const tab=document.createElement('button');tab.type='button';tab.id=`equipment-tab-${i}`;tab.setAttribute('role','tab');tab.setAttribute('aria-controls','equipment-grid');tab.textContent=label;tab.addEventListener('click',()=>showEquipment(i));tab.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(equipmentCurrent+1)%equipmentGroups.length;else if(event.key==='ArrowLeft')next=(equipmentCurrent-1+equipmentGroups.length)%equipmentGroups.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=equipmentGroups.length-1;else return;event.preventDefault();showEquipment(next,true)});equipmentTabs.append(tab)});
 showEquipment(0);
+equipmentMobile.addEventListener('change',event=>equipmentGrid.querySelectorAll('.equipment-card').forEach(card=>{card.classList.toggle('is-open',event.matches);card.querySelector('button').setAttribute('aria-expanded',String(event.matches))}));
 const menu=document.querySelector('.menu'),nav=document.querySelector('nav'),mobileNav=matchMedia('(max-width:900px)');
 function clearNavSelection(){nav.querySelectorAll('a.is-selected').forEach(link=>link.classList.remove('is-selected'))}
 function closeMobileNav(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');clearNavSelection()}
@@ -145,7 +146,7 @@ function setupMobileCardSlider(section,trackFor,tabs,label){
   section.append(controls);
   const bar=controls.querySelector('.mobile-card-progress'),fill=bar.firstElementChild,count=controls.querySelector('.mobile-card-count'),prev=controls.querySelector('.mobile-card-prev'),next=controls.querySelector('.mobile-card-next');
   function state(){const track=trackFor(),items=[...track.children],step=items.length>1?items[1].offsetLeft-items[0].offsetLeft:track.clientWidth;const index=Math.max(0,Math.min(items.length-1,Math.round(track.scrollLeft/(step||1))));return {track,items,step,index}}
-  function update(){const {items,index}=state(),total=items.length;const value=total?Math.round((index+1)/total*100):0;fill.style.width=`${value}%`;bar.setAttribute('aria-valuenow',String(value));count.textContent=total?(label==='의료진'?`${index+1}/${total}`:`${index+1} / ${total}`):'0 / 0';prev.disabled=index===0;next.disabled=index>=total-1}
+  function update(){const {items,index}=state(),total=items.length;const fraction=total?(label==='장비'&&total>1?1/6+(5/6)*index/(total-1):(index+1)/total):0;const value=Math.round(fraction*10000)/100;fill.style.width=`${value}%`;bar.setAttribute('aria-valuenow',String(Math.round(value)));count.textContent=total?`${index+1}/${total}`:'0/0';prev.disabled=index===0;next.disabled=index>=total-1}
   function move(direction){const {track,items,step,index}=state(),target=Math.max(0,Math.min(items.length-1,index+direction));track.scrollTo({left:target*step,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
   prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
   section.querySelectorAll('.team-grid,.equipment-grid').forEach(track=>track.addEventListener('scroll',update,{passive:true}));
@@ -158,7 +159,8 @@ teamCarousel.className='team-carousel';
 teamSection.querySelectorAll('.team-grid').forEach(panel=>teamCarousel.append(panel));
 teamSection.append(teamCarousel);
 setupMobileCardSlider(teamCarousel,()=>document.querySelector('#team .team-grid:not([hidden])'),teamTabs,'의료진');
-setupMobileCardSlider(document.querySelector('#equipment'),()=>equipmentGrid,[...equipmentTabs.querySelectorAll('button')],'장비');
+const equipmentCarousel=document.createElement('div');equipmentCarousel.className='equipment-carousel';equipmentGrid.before(equipmentCarousel);equipmentCarousel.append(equipmentGrid);
+setupMobileCardSlider(equipmentCarousel,()=>equipmentGrid,[...equipmentTabs.querySelectorAll('button')],'장비');
 
 // Internal medicine tabs and their supplied descriptions.
 const internalData=[
