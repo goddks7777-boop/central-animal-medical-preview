@@ -378,7 +378,7 @@ header.is-hidden{transform:translateY(-100%)}
 #checkup .steps em{font-size:14px;line-height:14px;padding:5px 7px;border-radius:5px}
 #checkup .steps h3{font-size:20px;line-height:1.2;margin:30px 0 10px}
 #checkup .steps p{font-size:16px;line-height:22px;color:#444;margin:0;word-break:keep-all}
-#checkup .check-grid>img{width:100%;height:450px;object-fit:cover}
+#checkup .check-grid>img{width:100%;height:450px;object-fit:cover;border-radius:20px}
 @media(max-width:900px){#checkup{min-height:0;padding-top:110px;padding-bottom:110px}#checkup .heading{margin-bottom:70px}#checkup .heading p{font-size:20px;line-height:1.5}#checkup .check-grid{grid-template-columns:1fr}#checkup .check-grid>img{height:auto;aspect-ratio:710/450} }
 @media(max-width:600px){#checkup{padding-top:90px;padding-bottom:90px}#checkup .heading{margin-bottom:50px}#checkup .heading p{font-size:16px}#checkup .steps.four{grid-template-columns:1fr}#checkup .steps article{min-height:0;padding:30px}#checkup .steps h3{font-size:19px}#checkup .steps p{font-size:15px}}
 @media(prefers-reduced-motion:reduce){#checkup .steps article{transition:none}}
@@ -665,7 +665,7 @@ body>header{z-index:100}
 /* 모바일 하단 퀵메뉴 */
 @media(max-width:900px){
   body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
-  .quick{position:fixed;z-index:90;left:0;right:0;top:auto;bottom:0;transform:none;width:100%;height:calc(76px + env(safe-area-inset-bottom,0px));padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:minmax(0,1fr);gap:0;background:#fff;border:0;box-shadow:0 -1px 0 #e5eceb,0 -4px 18px rgba(0,55,56,.1)}
+  .quick{position:fixed;z-index:90;left:0;right:0;top:auto;bottom:0;transform:none;width:100%;height:calc(76px + env(safe-area-inset-bottom,0px));padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:minmax(0,1fr);gap:0;background:#fff;border:0;box-shadow:0 -1px 0 #e5eceb,0 -4px 18px rgba(0,55,56,.1)}
   .quick a,.quick .up{box-sizing:border-box;width:100%;height:100%;min-width:0;min-height:0;padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:0;border-radius:0;background:transparent;color:#02686a;box-shadow:none;text-align:center;touch-action:manipulation;transition:background-color .2s ease}
   .quick a:hover,.quick .up:hover{transform:none;background:#f1f8f7}
   .quick img,.quick .up img{width:24px;height:24px;max-width:24px;max-height:24px;margin:0;object-fit:contain;filter:brightness(0) saturate(100%) invert(29%) sepia(49%) saturate(1449%) hue-rotate(139deg) brightness(93%) contrast(98%)}
