@@ -149,7 +149,32 @@ function setupMobileCardSlider(section,trackFor,tabs,label){
   function update(){const {items,index}=state(),total=items.length;const fraction=total?(label==='장비'&&total>1?1/6+(5/6)*index/(total-1):(index+1)/total):0;const value=Math.round(fraction*10000)/100;fill.style.width=`${value}%`;bar.setAttribute('aria-valuenow',String(Math.round(value)));count.textContent=total?`${index+1}/${total}`:'0/0';prev.disabled=index===0;next.disabled=index>=total-1}
   function move(direction){const {track,items,step,index}=state(),target=Math.max(0,Math.min(items.length-1,index+direction));track.scrollTo({left:target*step,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
   prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
-  section.querySelectorAll('.team-grid,.equipment-grid').forEach(track=>track.addEventListener('scroll',update,{passive:true}));
+  let mouseDrag=null,suppressClick=false;
+  section.querySelectorAll('.team-grid,.equipment-grid').forEach(track=>{
+    track.addEventListener('scroll',update,{passive:true});
+    track.addEventListener('dragstart',event=>{if(equipmentMobile.matches)event.preventDefault()});
+    track.addEventListener('click',event=>{if(suppressClick){event.preventDefault();event.stopPropagation();suppressClick=false}},{capture:true});
+    track.addEventListener('pointerdown',event=>{
+      if(!equipmentMobile.matches||event.pointerType!=='mouse'||event.button!==0||track.scrollWidth<=track.clientWidth+1)return;
+      const {index,step}=state();mouseDrag={track,id:event.pointerId,x:event.clientX,y:event.clientY,scrollLeft:track.scrollLeft,index,step,moved:false};
+    });
+  });
+  window.addEventListener('pointermove',event=>{
+    if(!mouseDrag||event.pointerId!==mouseDrag.id)return;
+    const dx=event.clientX-mouseDrag.x,dy=event.clientY-mouseDrag.y;
+    if(!mouseDrag.moved&&Math.abs(dy)>10&&Math.abs(dy)>Math.abs(dx)){mouseDrag=null;return}
+    if(!mouseDrag.moved&&Math.abs(dx)>8&&Math.abs(dx)>Math.abs(dy)){mouseDrag.moved=true;mouseDrag.track.classList.add('is-mouse-dragging');mouseDrag.track.setPointerCapture(event.pointerId);window.getSelection()?.removeAllRanges()}
+    if(mouseDrag.moved){event.preventDefault();mouseDrag.track.scrollLeft=mouseDrag.scrollLeft-dx}
+  });
+  function endMouseDrag(event){
+    if(!mouseDrag||event.pointerId!==mouseDrag.id)return;
+    const drag=mouseDrag;mouseDrag=null;if(!drag.moved)return;
+    drag.track.classList.remove('is-mouse-dragging');suppressClick=true;setTimeout(()=>{suppressClick=false},150);
+    const dx=event.clientX-drag.x,items=drag.track.children.length;let target=Math.round(drag.track.scrollLeft/(drag.step||1));
+    if(Math.abs(dx)>40&&target===drag.index)target+=dx<0?1:-1;
+    target=Math.max(0,Math.min(items-1,target));drag.track.scrollTo({left:target*drag.step,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+  }
+  window.addEventListener('pointerup',endMouseDrag);window.addEventListener('pointercancel',endMouseDrag);
   const reset=()=>requestAnimationFrame(()=>{trackFor().scrollLeft=0;update()});
   tabs.forEach(tab=>{tab.addEventListener('click',reset);tab.addEventListener('keydown',event=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(event.key))reset()})});
   window.addEventListener('resize',update);update();

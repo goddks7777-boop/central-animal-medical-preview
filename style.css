@@ -803,6 +803,9 @@ body>header{z-index:100}
   #location .location-phone-mobile{display:inline-flex;margin-top:0}
   #location .location-company p{word-break:keep-all;overflow-wrap:normal}
   #team .team-grid:not([hidden]),#equipment .equipment-grid{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none}
+  #team .team-grid,#equipment .equipment-grid,#equipment .equipment-grid .equipment-card-button{cursor:grab}
+  #team .team-grid.is-mouse-dragging,#equipment .equipment-grid.is-mouse-dragging{cursor:grabbing;user-select:none;scroll-snap-type:none}
+  #equipment .equipment-grid.is-mouse-dragging button{cursor:grabbing}
   #team .team-grid::-webkit-scrollbar,#equipment .equipment-grid::-webkit-scrollbar{display:none}
   #team .team-grid .team-card,#equipment .equipment-grid .equipment-card{flex:0 0 100%;min-width:0;scroll-snap-align:start}
   #team .team-grid{padding:0 2px 14px}
