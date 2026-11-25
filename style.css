@@ -909,3 +909,16 @@ body>header{z-index:100}
 @media(hover:hover){#internal .internal-related:hover,#surgery .surgery-related:hover,#oral-diseases .oral-related:hover{background:#005456;box-shadow:0 7px 14px #0003}}
 #internal .internal-related:focus-visible,#surgery .surgery-related:focus-visible,#oral-diseases .oral-related:focus-visible{outline:3px solid #00a7aa;outline-offset:3px}
 @media(min-width:901px){.quick{pointer-events:none}.quick a{pointer-events:auto}}
+
+/* PC 의료장비: 설명 뒤의 위쪽 영역만 밝히고 사진 아래쪽은 그대로 보여줍니다. */
+@media(min-width:901px){
+  #equipment .equipment-card-button::after{content:"";position:absolute;z-index:1;inset:0 0 auto;height:56.17%;border-radius:20px 20px 0 0;background:linear-gradient(180deg,rgba(255,255,255,0),#fff);opacity:0;pointer-events:none;transition:opacity .25s ease}
+  #equipment .equipment-card-title,#equipment .equipment-card-subtitle,#equipment .equipment-card-detail{z-index:2}
+  #equipment .equipment-card.is-open img{opacity:1}
+  #equipment .equipment-card.is-open .equipment-card-button::after{opacity:1}
+}
+@media(min-width:901px) and (hover:hover){
+  #equipment .equipment-card:hover img{opacity:1}
+  #equipment .equipment-card:hover .equipment-card-button::after{opacity:1}
+}
+@media(min-width:901px) and (prefers-reduced-motion:reduce){#equipment .equipment-card-button::after{transition:none}}
