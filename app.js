@@ -145,7 +145,7 @@ function setupMobileCardSlider(section,trackFor,tabs,label){
   section.append(controls);
   const bar=controls.querySelector('.mobile-card-progress'),fill=bar.firstElementChild,count=controls.querySelector('.mobile-card-count'),prev=controls.querySelector('.mobile-card-prev'),next=controls.querySelector('.mobile-card-next');
   function state(){const track=trackFor(),items=[...track.children],step=items.length>1?items[1].offsetLeft-items[0].offsetLeft:track.clientWidth;const index=Math.max(0,Math.min(items.length-1,Math.round(track.scrollLeft/(step||1))));return {track,items,step,index}}
-  function update(){const {items,index}=state(),total=items.length;const value=total?Math.round((index+1)/total*100):0;fill.style.width=`${value}%`;bar.setAttribute('aria-valuenow',String(value));count.textContent=total?`${index+1} / ${total}`:'0 / 0';prev.disabled=index===0;next.disabled=index>=total-1}
+  function update(){const {items,index}=state(),total=items.length;const value=total?Math.round((index+1)/total*100):0;fill.style.width=`${value}%`;bar.setAttribute('aria-valuenow',String(value));count.textContent=total?(label==='의료진'?`${index+1}/${total}`:`${index+1} / ${total}`):'0 / 0';prev.disabled=index===0;next.disabled=index>=total-1}
   function move(direction){const {track,items,step,index}=state(),target=Math.max(0,Math.min(items.length-1,index+direction));track.scrollTo({left:target*step,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
   prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
   section.querySelectorAll('.team-grid,.equipment-grid').forEach(track=>track.addEventListener('scroll',update,{passive:true}));
@@ -153,7 +153,11 @@ function setupMobileCardSlider(section,trackFor,tabs,label){
   tabs.forEach(tab=>{tab.addEventListener('click',reset);tab.addEventListener('keydown',event=>{if(['ArrowRight','ArrowLeft','Home','End'].includes(event.key))reset()})});
   window.addEventListener('resize',update);update();
 }
-setupMobileCardSlider(document.querySelector('#team'),()=>document.querySelector('#team .team-grid:not([hidden])'),teamTabs,'의료진');
+const teamSection=document.querySelector('#team'),teamCarousel=document.createElement('div');
+teamCarousel.className='team-carousel';
+teamSection.querySelectorAll('.team-grid').forEach(panel=>teamCarousel.append(panel));
+teamSection.append(teamCarousel);
+setupMobileCardSlider(teamCarousel,()=>document.querySelector('#team .team-grid:not([hidden])'),teamTabs,'의료진');
 setupMobileCardSlider(document.querySelector('#equipment'),()=>equipmentGrid,[...equipmentTabs.querySelectorAll('button')],'장비');
 
 // Internal medicine tabs and their supplied descriptions.

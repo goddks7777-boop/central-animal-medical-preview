@@ -800,3 +800,25 @@ body>header{z-index:100}
   .mobile-card-controls button:focus-visible{outline:2px solid #02686a;outline-offset:2px}
 }
 @media(max-width:600px){.director .portrait{height:400px}}
+
+/* 모바일 의료진 카드: 카드 양옆의 이동 버튼과 아래쪽 위치 표시 */
+@media(max-width:900px){
+  #team .team-carousel{position:relative;width:min(345px,calc(100vw - 58px));margin-inline:auto}
+  #team .team-grid:not([hidden]){width:calc(100% + 24px);margin-left:-12px;padding:10px 12px 14px;scroll-padding-left:12px;scroll-padding-right:12px}
+  #team .team-card{min-height:606px;padding:33px 31px;border-radius:20px;box-shadow:0 10px 10px rgba(0,0,0,.1)}
+  #team .team-card h3{font-size:20px;line-height:1.2}
+  #team .team-card h3 small{font-size:20px}
+  #team .team-card h3::before{margin-bottom:20px}
+  #team .team-card .team-role{font-size:16px;line-height:1.2;font-weight:700}
+  #team .team-detail{margin-top:30px}
+  #team .team-detail h4{font-size:16px;line-height:1;margin-bottom:12px}
+  #team .team-detail p{font-size:14px;line-height:22px;font-weight:500}
+  #team .mobile-card-controls{width:min(200px,100%);margin:26px auto 0;display:flex;flex-direction:column;gap:10px}
+  #team .mobile-card-progress{width:100%;height:4px;flex:none;background:#eee}
+  #team .mobile-card-progress span{background:#00a7aa}
+  #team .mobile-card-count{min-width:0;font-size:10px;line-height:10px;color:#444}
+  #team .mobile-card-controls button{position:absolute;top:calc((100% - 64px)/2);z-index:2;transform:translateY(-50%);opacity:.6;filter:drop-shadow(0 4px 10px rgba(0,0,0,.1))}
+  #team .mobile-card-controls .mobile-card-prev{left:-18px}
+  #team .mobile-card-controls .mobile-card-next{right:-18px}
+  #team .mobile-card-controls button:disabled{opacity:.35}
+}
